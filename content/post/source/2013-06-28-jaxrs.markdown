@@ -2,6 +2,7 @@
 categories:
 - jax-rs client
 - development
+- article
 comments: true
 date: 2013-06-28T00:00:00Z
 published: true

@@ -2,6 +2,7 @@
 categories:
 - delicious
 - opera
+- article
 date: 2009-07-04T01:13:00Z
 title: Opera и del.icio.us
 url: /2009/07/04/opera-delicious/

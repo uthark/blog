@@ -1,5 +1,6 @@
 ---
 categories:
+- article
 - java
 - разработка
 - javamail

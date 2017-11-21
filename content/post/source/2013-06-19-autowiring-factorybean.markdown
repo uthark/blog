@@ -1,5 +1,6 @@
 ---
 categories:
+- article
 - autowiring
 - factory bean
 - spring framework

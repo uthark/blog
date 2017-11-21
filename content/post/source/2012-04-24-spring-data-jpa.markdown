@@ -1,5 +1,6 @@
 ---
 categories:
+- article
 - development
 - spring data
 - jpa

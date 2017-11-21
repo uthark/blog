@@ -1,5 +1,6 @@
 ---
 categories:
+- article
 - best practices
 - gorm
 - разработка

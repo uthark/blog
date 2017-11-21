@@ -10,6 +10,7 @@ categories:
 - postgresql
 - oracle
 - development
+- article
 date: 2009-07-07T22:11:00Z
 title: Двунаправленная ссылочная целостность
 url: /2009/07/07/blog-post/

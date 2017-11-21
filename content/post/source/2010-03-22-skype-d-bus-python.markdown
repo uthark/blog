@@ -1,5 +1,6 @@
 ---
 categories:
+- article
 - skype
 - python
 - dbus

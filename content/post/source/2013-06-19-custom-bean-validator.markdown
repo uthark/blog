@@ -1,5 +1,6 @@
 ---
 categories:
+- article
 - beanvalidation
 - validator
 - validation

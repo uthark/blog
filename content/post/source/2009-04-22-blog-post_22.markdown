@@ -3,6 +3,7 @@ categories:
 - блокировка
 - разработка
 - development
+- article
 date: 2009-04-22T23:58:00Z
 title: Кратко о блокировках в БД
 url: /2009/04/22/blog-post_22/

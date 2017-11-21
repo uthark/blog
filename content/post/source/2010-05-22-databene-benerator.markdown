@@ -1,5 +1,6 @@
 ---
 categories:
+- article
 - performance
 - testing
 - development

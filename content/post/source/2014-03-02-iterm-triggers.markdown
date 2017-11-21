@@ -1,5 +1,6 @@
 ---
 categories:
+    - article
 - development
 - iterm
 - osx

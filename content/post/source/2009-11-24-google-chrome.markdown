@@ -3,6 +3,7 @@ categories:
 - extension
 - chromium
 - development
+- article
 date: 2009-11-24T23:09:00Z
 title: Создание страницы настроек для расширений Google Chrome
 url: /2009/11/24/google-chrome/

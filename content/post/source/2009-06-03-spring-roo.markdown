@@ -3,6 +3,7 @@ categories:
 - spring roo
 - разработка
 - development
+- article
 date: 2009-06-03T00:06:00Z
 title: Введение в Spring Roo
 url: /2009/06/03/spring-roo/

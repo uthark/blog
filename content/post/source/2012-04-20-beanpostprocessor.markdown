@@ -1,5 +1,6 @@
 ---
 categories:
+- article
 - reflection
 - java
 - logging

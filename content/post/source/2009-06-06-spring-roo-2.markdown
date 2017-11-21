@@ -4,6 +4,7 @@ categories:
 - spring roo
 - разработка
 - development
+- article
 date: 2009-06-06T22:19:00Z
 title: Spring Roo (часть 2)
 url: /2009/06/06/spring-roo-2/

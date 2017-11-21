@@ -1,5 +1,6 @@
 ---
 categories:
+- article
 - jax-rs client
 - spring
 - development

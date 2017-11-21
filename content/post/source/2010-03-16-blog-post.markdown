@@ -1,5 +1,6 @@
 ---
 categories:
+- article
 - производительность
 - self-improvement
 date: 2010-03-16T21:52:00Z

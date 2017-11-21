@@ -3,6 +3,7 @@ categories:
 - разработка
 - дизайн
 - development
+- article
 date: 2009-05-30T23:45:00Z
 title: Использование модификатора protected на полях в базовом классе
 url: /2009/05/30/protected/

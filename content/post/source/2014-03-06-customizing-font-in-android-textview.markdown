@@ -3,6 +3,7 @@ categories:
 - android
 - development
 - textview
+- article
 comments: true
 date: 2014-03-06T19:13:17Z
 title: Using custom font in Android TextView

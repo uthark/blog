@@ -4,6 +4,7 @@ categories:
 - java
 - грабли
 - development
+- article
 date: 2009-06-02T23:31:00Z
 title: Apache Ant и Metro
 url: /2009/06/02/apache-ant-metro/

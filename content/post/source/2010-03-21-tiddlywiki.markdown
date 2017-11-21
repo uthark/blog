@@ -1,5 +1,6 @@
 ---
 categories:
+- article
 - howto
 - разработка
 - tiddlywiki

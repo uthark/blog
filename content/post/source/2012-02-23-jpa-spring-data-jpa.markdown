@@ -1,5 +1,6 @@
 ---
 categories:
+- article
 - spring
 - разработка
 - spring data
