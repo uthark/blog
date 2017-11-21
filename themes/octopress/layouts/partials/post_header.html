@@ -1,0 +1,8 @@
+<!-- This file contains the header/title for each post -->
+
+<header>
+    <h1 class="entry-title">
+        {{ if ($.Scratch.Get "isHome") }}<a href="{{ .Permalink }}">{{ .Title }}</a>{{ else }} {{ .Title }} {{ end }}
+    </h1>
+
+</header>

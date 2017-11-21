@@ -1,0 +1,60 @@
+baseURL: https://uthark.github.io
+disablePathToLower: true
+languageCode: en-us
+title: Software Development and related activities
+
+paginate: 5
+
+# publishDir: "docs"
+
+
+# Highlight shortcode and code fences (```) will be treated similarly
+pygmentsCodefences : true
+
+params:
+  github : "https://github.com/uthark/"
+  bitbucket : "https://bitbucket.org/uthark/"
+  twitter : "https://twitter.com/LinkageError/"
+  keybase : "https://keybase.io/uthark/"
+  stackoverflow: "http://stackoverflow.com/users/216764/uthark"
+  googleplus: "https://plus.google.com/+OlegAtamanenko"
+
+  # If false, all of blog post will appear on front page (and in pagination)
+  truncate : false
+  author: Oleg Atamanenko
+  # Switch to true to enable RSS icon link
+  rss : true
+
+  # Search engine URL
+  searchEngineURL : "https://www.google.com/search"
+  sidebarMenuEnabled: false
+  sidebarMenuHeader: "Sidebar"
+  disableReadingTime: true
+menu:
+  main:
+    - Name: "Home"
+      URL: "/"
+      weight: -5
+    - Name: "Articles"
+      URL: "/categories/article/"
+      weight: -3
+    - Name: "Reading List"
+      URL: "/categories/reading-list/"
+      weight: -1
+    - Name: "About me"
+      URL: "/about/"
+      weight: 0
+
+# Sidebar menus
+# Enable with "sidebarMenuEnabled = true" under [params]
+# Header text is "sidebarMenuHeader" under [params]
+#  sidebar:
+#    - Name: "Home"
+#      URL: "/"
+#      weight: 0
+#    - Name: "Articles"
+#      URL: "/categories/article/"
+#      weight: 2
+#    - Name: "Reading List"
+#      URL: "/categories/reading-list/"
+#      weight: 1

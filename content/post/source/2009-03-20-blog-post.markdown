@@ -1,0 +1,8 @@
+---
+date: 2009-03-20T01:02:00Z
+title: "identi.ca"
+url: /2009/03/20/blog-post/
+---
+
+Завёл аккаунт на иденти.ке
+<a href="http://identi.ca/uthark">identi.ca</a>

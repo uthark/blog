@@ -1,0 +1,153 @@
+---
+categories:
+- аспекты
+- разработка
+- development
+date: 2012-01-28T02:43:00Z
+title: Немножко магии от AspectJ
+url: /2012/01/28/aspectj/
+---
+
+Наверно, вы уже сталкивались с таким понятием, как AOП - <a href="http://en.wikipedia.org/wiki/Aspect-oriented_programming">аспектно-ориентированное программирование</a>.<br />
+<br />
+Обычно, про него вспоминают, когда говорят про <a href="http://static.springsource.org/spring/docs/current/reference/html/transaction.html#transaction-declarative-applying-more-than-just-tx-advice">декларативное использование транзакций</a>,  про <a href="https://docs.jboss.com/aop/1.0/aspect-library/reference/annotation15_security.html">проверку прав доступа</a>, либо про <a href="http://static.springsource.org/spring/docs/3.0.x/javadoc-api/org/springframework/aop/interceptor/CustomizableTraceInterceptor.html">реализацию журналирования</a>.<br />
+<br />
+Но это не единственные области применения АОП.<br />
+<br />
+Я хочу показать ещё пару областей применения из реальных проектов:<br />
+<br />
+1. Модификация исходного кода для реализации дополнительных возможностей.<br />
+2. Принудительная проверка контракта между модулями.<br />
+<br />
+<h4>Модификация исходного кода для реализации дополнительных возможностей</h4>Предположим, что у нас есть модуль в приложении, который предоставляет нужную нам функциональность. С модулем всё в порядке, кроме одного - все его методы могут выбрасывать проверяемые исключения, что ведёт к ухудшению читаемости кода, так как вместо простого вызова метода:<br />
+<br />
+
+```java
+service.doUsefulThing();
+```
+
+наш вызов превращается в <br />
+
+```java
+try {
+        service.doUsefulThing();
+    } catch ( FirstServiceException e) {
+        processException(e);
+    } catch ( SecondServiceException e) {
+        processException(e);
+    }
+```
+
+Дополнительная проблема в том, что у модуля количество модулей 10+, количество методов также велико, что приводит к тому, что блоки <tt>try/catch</tt> замусоривают код. Решение с использованием паттерна <tt><a href="https://en.wikipedia.org/wiki/Callback_(computer_programming)">Callback</a></tt> также приведёт к замусориванию кода.<br />
+<br />
+<h5>Вариант решения проблемы с использованием AOP</h5>Решение данной проблемы было таким - а что, если используя возможности AOP трансформировать проверяемое исключение в непроверяемое? Таким образом, мы сможем избавиться от скучной проверки на исключения в нашем коде, а для обработки исключения (ведь мы всегда его будем обрабатывать одинаково) достаточно будет использовать обработку исключения на верхнем уровне абстракции.<br />
+<br />
+Для более элегантного решения проблемы было решено добавить собственную аннотацию, которой нужно помечать метод, который использует сервис из "плохого" модуля.<br />
+<br />
+
+```java
+package com.blogger.atamanenko;
+
+import java.lang.annotation.Documented;
+import java.lang.annotation.Inherited;
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
+import java.lang.annotation.RetentionPolicy;
+
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.METHOD})
+@Documented
+@Inherited
+public @interface SuppressExceptions {
+}
+```
+
+А также аспект, который бы делал всю нужную нам функциональность:
+
+```java
+public aspect ExceptionSupressingAspect {
+
+        declare soft :ServiceException:  execution(@com.blogger.atamanenko.annotation.SuppressExceptions * *.*(..));
+}
+```
+
+Данный аспект делает в точности следующее: "Смягчает" исключение <tt>ServiceException</tt> для метода, который помечен аннотацией <tt>@SuppressExceptions</tt>.<br />
+<br />
+Пример использования:<br />
+
+```java
+@SuppressExceptions
+    protected Entity findEntity(final Identifiable id) {
+        return entityService.findById(id);
+    }
+```
+
+<h4>Принудительная проверка контракта между модулями</h4>Часто нам необходимо принудительно требовать выполнения каких-то архитектурных ограничений, например, контроллеры должны работать только с сервисами и им запрещено напрямую обращаться к базе данных.<br />
+<br />
+Для реализации таких проверок можно также использовать возможности AOP.<br />
+<br />
+Предположим, что в нашем приложении модуль сервиса выставляет наружу <a href="http://java.sun.com/blueprints/corej2eepatterns/Patterns/TransferObject.html">DTO</a> для работы, скрывая при этом классы модели. Для того, чтобы явно запретить доступ к классам и методам модели нам необходимо создать аспект, который бы вызывал ошибку компиляции при нарушении ограничения.<br />
+<br />
+
+```java
+aspect ForbidAccessToModelAspect {
+
+//      Full prohibition of access to model:
+        pointcut accessModel(): call(* com.blogger.atamanenko.app.model..*.*(..));
+        declare error: accessModel() : "Illegal call to model";
+}
+
+```
+
+После объявления такого аспекта, мы получим ошибку компиляции, что, очевидным образом, приведёт к выполнению архитектурного ограничения.<br />
+<br />
+Если же нам необходимо разрешить доступ к одному пакету только из какого-то определённого другого, то мы можем модифицировать наш аспект следующим образом:<br />
+
+```java
+aspect ForbidAccessToModelAspect2 {
+
+        pointcut accessModel(): call(* com.blogger.atamanenko.app.model.**.*(..));
+
+        // Allow access to model from specific package for methods and constructors
+        pointcut allowAccessModelFromSpecificPackage(): withincode(* com.blogger.atamanenko.app.allowedpackage..*.*(..));
+        pointcut allowAccessModelFromSpecificPackage2(): withincode(com.blogger.atamanenko.app.allowedpackage..*.new(..));
+
+        // forbid usage from any other methods.
+        declare error: accessModel() && !(allowAccessModelFromSpecificPackage() || allowAccessModelFromSpecificPackage()):"Illegal call to Model from forbidden package";
+}
+```
+
+Такой аспект, созданный в нашем модуле запретит нам использовать классы модели из всех пакетов, кроме <tt>com.blogger.atamanenko.app.allowedpackage</tt><br />
+<h4>Сборка приложения</h4>Файл аспекта нужно положить в каталог <tt>src/main/aspect</tt>, а для сборки приложения необходимо использовать не стандартный Oracle <a href="http://docs.oracle.com/javase/6/docs/technotes/tools/solaris/javac.html">Java Compiler</a>, а <a href="http://eclipse.org/aspectj/downloads.php">AspectJ compiler</a>.<br />
+<br />
+Пример конфигурации для <a href="https://maven.apache.org/">Apache Maven</a>:<br />
+<br />
+
+```xml
+&lt;plugin&gt;
+    &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
+    &lt;artifactId&gt;aspectj-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;${aspectj-maven-plugin.version}&lt;/version&gt;
+    &lt;configuration&gt;
+        &lt;complianceLevel&gt;1.6&lt;/complianceLevel&gt;
+        &lt;aspectLibraries&gt;
+            &lt;aspectLibrary&gt;
+                &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-aspects&lt;/artifactId&gt;
+            &lt;/aspectLibrary&gt;
+        &lt;/aspectLibraries&gt;
+        &lt;verbose&gt;true&lt;/verbose&gt;
+    &lt;/configuration&gt;
+    &lt;executions&gt;
+        &lt;execution&gt;
+            &lt;phase&gt;process-sources&lt;/phase&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;compile&lt;/goal&gt;
+                &lt;goal&gt;test-compile&lt;/goal&gt;
+            &lt;/goals&gt;
+        &lt;/execution&gt;
+    &lt;/executions&gt;
+&lt;/plugin&gt;
+```
+
+<h4>Заключение</h4>Вот в общем-то и всё. Я сознательно не стал описывать языковые конструкции аспектов, так как они подробно описаны в <a href="https://www.eclipse.org/aspectj/doc/next/progguide/index.html">руководстве AspectJ</a>

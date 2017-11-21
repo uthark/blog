@@ -1,0 +1,21 @@
+---
+categories:
+- development
+- funny
+comments: true
+date: 2014-03-14T23:42:10Z
+title: Life fee
+url: /2014/03/14/life-fee/
+---
+
+Found in sources:
+
+```java
+try {
+    // do some business logic.
+} catch (Exception e) {
+    errorBean.addError("System exception. Unable to locate life fee.");
+}
+```
+
+This is just awesome!

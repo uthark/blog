@@ -1,0 +1,11 @@
+---
+categories:
+- openid
+date: 2009-01-06T21:36:00Z
+title: OpenID
+url: /2009/01/06/openid/
+---
+
+Завёл себе отдельный OpenID аккаунт. Так что теперь буду везде пользоваться им вместо аккаунта с блоггера.
+
+Для любопытных: <a href="http://uthark.myopenid.com/">http://uthark.myopenid.com/</a>

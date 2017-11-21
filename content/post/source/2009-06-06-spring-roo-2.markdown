@@ -1,0 +1,297 @@
+---
+categories:
+- java
+- spring roo
+- разработка
+- development
+date: 2009-06-06T22:19:00Z
+title: Spring Roo (часть 2)
+url: /2009/06/06/spring-roo-2/
+---
+
+
+<h1>Архитектура сгенерированного приложения</h1>
+Spring Roo активно использует аспекты. В качестве реализации аспектов была взята библиотека <a href="http://www.eclipse.org/aspectj/">aspectj</a>.
+Большая часть сгенерированного кода попадает в отдельные файлы-аспекты.
+Создадим простой класс:
+```bash
+new persistent class jpa -name ~.domain.Action -testAutomatically
+add field string name -notNull -sizeMin 1 -sizeMax 80
+add field string description -sizeMax 1024
+```
+Spring Roo создаст нам следующие файлы:
+
+* **Action.java**
+Класс содержит только полезную с точки зрения назначения класса информацию. По сути, то, что вводит разработчик в консоль Roo аккумулируется здесь. Весь дополнительный код разносится по другим классам.
+
+```java
+@Entity //1
+@RooJavaBean //2
+@RooToString //3
+@RooEntity(finders = { "findActionsByName" }) //4
+public class Action {
+
+@NotNull
+@Size(min = 1, max = 80)
+private String name;
+
+
+@Size(max = 1024)
+private String description;
+}
+```
+
+Мы видим, что:
+
+1. Класс является JPA-сущностью.
+2. Аннотация `@RooJavaBean` говорит, что этот класс - обычный Java-бин.
+3. Аннотация `@RooToString` говорит, что у этого класса есть перегруженный метод toString().
+4. Аннотация `@RooEntity` говорит что класс является JPA-сущностью.
+
+* **Action_Roo_Configurable.aj**
+Данный аспект говорит, что класс Action является конфигурируемым через Spring.
+
+```java
+privileged aspect Action_Roo_Configurable {
+declare @type: Action: @org.springframework.beans.factory.annotation.Configurable;
+}
+```
+
+* **Action_Roo_Entity.aj**
+В данном классе собраны все методы DAO для работы с классом Action.
+
+```java
+package org.academ.uthark.research.roo.domain;
+
+privileged aspect Action_Roo_Entity {
+
+@javax.persistence.PersistenceContext
+transient javax.persistence.EntityManager Action.entityManager;
+
+@javax.persistence.Id
+@javax.persistence.GeneratedValue(strategy = javax.persistence.GenerationType.AUTO)
+@javax.persistence.Column(name = "id")
+private java.lang.Long Action.id;
+
+@javax.persistence.Version
+@javax.persistence.Column(name = "version")
+private java.lang.Integer Action.version;
+
+public java.lang.Long Action.getId() {
+return this.id;
+}
+
+public void Action.setId(java.lang.Long id) {
+this.id = id;
+}
+
+public java.lang.Integer Action.getVersion() {
+return this.version;
+}
+
+public void Action.setVersion(java.lang.Integer version) {
+this.version = version;
+}
+
+@org.springframework.transaction.annotation.Transactional
+public void Action.persist() {
+if (this.entityManager == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
+this.entityManager.persist(this);
+}
+
+@org.springframework.transaction.annotation.Transactional
+public void Action.remove() {
+if (this.entityManager == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
+this.entityManager.remove(this);
+}
+
+@org.springframework.transaction.annotation.Transactional
+public void Action.flush() {
+if (this.entityManager == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
+this.entityManager.flush();
+}
+
+@org.springframework.transaction.annotation.Transactional
+public void Action.merge() {
+if (this.entityManager == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
+Action merged = this.entityManager.merge(this);
+this.entityManager.flush();
+this.id = merged.getId();
+}
+
+public static long Action.countActions() {
+return (Long) new Action().entityManager.createQuery("select count(o) from Action o").getSingleResult();
+}
+
+public static java.util.List<org.academ.uthark.research.roo.domain.action> Action.findAllActions() {
+return new Action().entityManager.createQuery("select o from Action o").getResultList();
+}
+
+public static org.academ.uthark.research.roo.domain.Action Action.findAction(java.lang.Long id) {
+if (id == null) throw new IllegalArgumentException("An identifier is required to retrieve an instance of Action");
+return new Action().entityManager.find(Action.class, id);
+}
+
+public static java.util.List<org.academ.uthark.research.roo.domain.action> Action.findActionEntries(int firstResult, int maxResults) {
+return new Action().entityManager.createQuery("select o from Action o").setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+}
+
+}
+```
+
+Как легко видеть, этот аспект добавляет классу Action CRUD-методы, поля id и version.
+
+* **Action_Roo_Finder.aj**
+Этот аспект аккумулирует все finder-методы, созданные через консоль Spring Roo.
+
+```java
+privileged aspect Action_Roo_Finder {
+
+public static javax.persistence.Query Action.findActionsByName(java.lang.String name) {
+if (name == null) throw new IllegalArgumentException("The name argument is required");
+javax.persistence.Query q = new Action().entityManager.createQuery("FROM Action AS action WHERE action.name = :name");
+q.setParameter("name", name);
+return q;
+}
+
+}
+```
+
+* **Action_Roo_JavaBean.aj**
+Для уменьшения загромождения кода ненужными методами для доступа к полям Spring Roo выносит их в отдельный аспект.
+
+```java
+privileged aspect Action_Roo_JavaBean {
+
+public java.lang.String Action.getName() {
+return this.name;
+}
+
+public void Action.setName(java.lang.String name) {
+this.name = name;
+}
+
+public java.lang.String Action.getDescription() {
+return this.description;
+}
+
+public void Action.setDescription(java.lang.String description) {
+this.description = description;
+}
+
+}
+```
+
+* **Action_Roo_Plural.aj**
+В данном аспекте можно определить, как созданная сущность выглядит во множественном числе.
+
+```java
+package org.academ.uthark.research.roo.domain;
+
+privileged aspect Action_Roo_JavaBean {
+
+public java.lang.String Action.getName() {
+return this.name;
+}
+
+public void Action.setName(java.lang.String name) {
+this.name = name;
+}
+
+public java.lang.String Action.getDescription() {
+return this.description;
+}
+
+public void Action.setDescription(java.lang.String description) {
+this.description = description;
+}
+
+}
+```
+* **Action_Roo_ToString.aj**
+Аспект, переопределяющий `toString()`
+
+```java
+privileged aspect Action_Roo_ToString {
+
+public java.lang.String Action.toString() {
+StringBuilder sb = new StringBuilder();
+sb.append("id: ").append(getId()).append(", ");
+sb.append("version: ").append(getVersion()).append(", ");
+sb.append("name: ").append(getName()).append(", ");
+sb.append("description: ").append(getDescription()).append(", ");
+return sb.toString();
+}
+
+}
+```
+
+* **ActionEditor.java**
+Кроме того, при создании контроллеров для работы дополнительно создается `ActionEditor`
+
+```java
+import org.springframework.roo.addon.property.editor.RooEditor;
+
+@RooEditor(providePropertyEditorFor = Action.class)
+public class ActionEditor {
+}
+```
+
+* **ActionEditor_Roo_Editor.aj**
+Аспект с реализацией.
+
+```java
+privileged aspect ActionEditor_Roo_Editor {
+
+declare parents: ActionEditor implements java.beans.PropertyEditorSupport;
+
+org.springframework.beans.SimpleTypeConverter ActionEditor.typeConverter = new org.springframework.beans.SimpleTypeConverter();
+
+public java.lang.String ActionEditor.getAsText() {
+ Object obj = getValue(); 
+ if (obj == null) { 
+     return null;     
+ } 
+ return (String) typeConverter.convertIfNecessary(((org.academ.uthark.research.roo.domain.Action) obj).getId() , String.class); 
+}
+
+public void ActionEditor.setAsText(java.lang.String text) {
+ if (text == null || "".equals(text)) { 
+     setValue(null);     
+     return;     
+ } 
+
+ java.lang.Long identifier = (java.lang.Long) typeConverter.convertIfNecessary(text, java.lang.Long.class); 
+ if (identifier == null) { 
+     setValue(null);     
+     return;     
+ } 
+
+ setValue(org.academ.uthark.research.roo.domain.Action.findAction(identifier)); 
+}
+
+}
+
+```
+
+
+### А где же equals()/hashCode()?
+Легко заметить, что Spring Roo забыл ещё про один важный аспект - про реализацию методов `equals()` и `hashCode()`. К релизу, я думаю, эта недоработка будет исправлена.
+
+Как видно, код скрипта для генерации весьма и весьма лаконичен, а получающий java-код наглядно показывает всю многословность языка Java.
+
+### Apache Maven integration
+Spring Roo при создании проекта создаёт pom.xml, хорошо знакомый всем работавшим с maven. Кроме того, консоль позволяет добавлять и удалять зависимости, не правя файл вручную.
+
+### Расширения
+Spring Roo поддерживает расширения, что ещё больше даёт возможностей. На сегодняшний день написано уже как минимум одно расширение - <a href="http://jira.springframework.org/browse/ROO-41">Sitemesh Addon</a>.
+
+### Критика
+В первую очередь критика относится к текущему релизу, а так как он ещё в глубокой альфе, то все может измениться к официальному релизу.
+
+1. Нет возможности подставлять свои JSP-шаблоны для сгенерированного CRUD
+2. В сгенерированном коде есть ошибки, например, если заводим поле типа флоат, создаём контроллер, то при редактировании сущности возможна следующая ошибка: вводим достаточно большое число (1234567), сохраняем сущность, открываем на редактирование. В поле, хранящем флоат получаем 1.23456E7, и после этого невозможно сохранить сущность, так как получаем ошибку валидации.
+3. Ещё одна ошибка связана с отношением один ко многим. Создаём пару сущностей с таким отношением. Запускаем, пробуем создать сущность. Roo умничает, если нет связанных сущностей в БД, то он даже не генерирует `<select>`
+
+### Вывод
+В целом, Spring Roo достойное начинание, но пользоваться им в Production можно будет ещё нескоро.
