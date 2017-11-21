@@ -1,12 +1,9 @@
 baseURL: https://uthark.github.io
 disablePathToLower: true
 languageCode: en-us
-title: Software Development and related activities
+title: Sharing knowledge
 
 paginate: 5
-
-# publishDir: "docs"
-
 
 # Highlight shortcode and code fences (```) will be treated similarly
 pygmentsCodefences : true
