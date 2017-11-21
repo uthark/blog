@@ -10,7 +10,7 @@ title: Настройка autofs для монтирования NFS-ресур�
 url: /2009/12/14/autofs-nfs/
 ---
 
-<div class='post'>
+
 Summary: В данной заметке описана настройка autofs для доступа к сетевым ресурсам, доступным по NFS.<br />
 <br />
 Последние несколько лет (с тех пор, как количество компьютеров дома стало больше одного) возникла проблема беспрепятственного доступа к данным, хранящимся на одном компьютере с другого.<br />
@@ -39,4 +39,4 @@ Summary: В данной заметке описана настройка autofs
 <br />
 <div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/_y8p0_dtMJ38/SyZxDikTDxI/AAAAAAAAAvk/LTr3KsGATGk/s1600-h/Screenshot-media+-+administrilo+de+dosieroj.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/_y8p0_dtMJ38/SyZxDikTDxI/AAAAAAAAAvk/LTr3KsGATGk/s320/Screenshot-media+-+administrilo+de+dosieroj.png" /></a><br />
 </div><br />
-6. Пользуемся.</div>
+6. Пользуемся.

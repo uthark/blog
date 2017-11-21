@@ -4,6 +4,7 @@ categories:
 - linux
 - svn
 - nautilus
+- article
 date: 2009-12-06T01:03:00Z
 title: RabbitVCS - расширение для Nautilus для работы с Subversion
 url: /2009/12/06/nautilus-subversion/

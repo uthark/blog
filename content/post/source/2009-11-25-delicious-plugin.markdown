@@ -4,12 +4,12 @@ categories:
 - delicious
 - chromium
 - google chrome
+- article
 date: 2009-11-25T23:16:00Z
 title: Расширение Delicious Plugin идёт в массы
 url: /2009/11/25/delicious-plugin/
 ---
 
-<div class='post'>
 Google запустил сайт <a href="https://chrome.google.com/extensions/" target="_blank">Chrome Extensions</a>.<br />
 <br />
 В данный момент сайт доступен только разработчикам расширений. Залил расширение, написал кратенькое описание. Жду запуска сайта. :)<br />
@@ -18,4 +18,4 @@ Google запустил сайт <a href="https://chrome.google.com/extensions/"
 <br />
 P.S. А тем временем работа над расширением продолжается.<br />
 <br />
-P.P.S. У расширения появилась своя страничка в сети: <a href="http://code.google.com/p/chromium-delicious-extension/">Project Home Page</a></div>
+P.P.S. У расширения появилась своя страничка в сети: <a href="http://code.google.com/p/chromium-delicious-extension/">Project Home Page</a>

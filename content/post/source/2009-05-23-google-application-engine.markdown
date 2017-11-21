@@ -3,6 +3,7 @@ categories:
 - GAE
 - обзор
 - development
+- article
 date: 2009-05-23T23:00:00Z
 title: Google Application Engine
 url: /2009/05/23/google-application-engine/

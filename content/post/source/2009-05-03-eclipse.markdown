@@ -3,6 +3,7 @@ categories:
 - plugin
 - eclipse
 - development
+- article
 date: 2009-05-03T00:18:00Z
 title: Eclipse и его расширения
 url: /2009/05/03/eclipse/
