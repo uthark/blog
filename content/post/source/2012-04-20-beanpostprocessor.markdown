@@ -15,17 +15,19 @@ url: /2012/04/20/beanpostprocessor/
 Сегодня я хочу рассказать, как можно сделать инициализацию логгера в классе с использованием аннотаций и <a href="http://static.springsource.org/spring/docs/current/javadoc-api/org/springframework/beans/factory/config/BeanPostProcessor.html">BeanPostProcessor</a>
 
 Очень часто мы инициализируем логгер следующим образом:
+
 ```java
 public class MyClass {
     private static final Logger LOG = LoggerFactory.getLogger(MyClass.class);
 }
-</pre>
+```
 
 Я покажу, как сделать, чтобы можно было писать вот так: 
+
 ```java
-    @Log
-    private Logger LOG;
-</pre>
+@Log
+private Logger LOG;
+```
 
 Первым делом нам нужно объявить аннотацию:
 
@@ -36,7 +38,7 @@ public class MyClass {
 public @interface Log {
     String category() default "";
 }
-</pre>
+```
 
 А вторым делом, написать собственный <tt>BeanPostProcessor</tt>, который бы устанавливал нам логгер:
 
