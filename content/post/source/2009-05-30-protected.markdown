@@ -1,7 +1,6 @@
 ---
 categories:
-- разработка
-- дизайн
+- softwaredesign
 - development
 - article
 date: 2009-05-30T23:45:00Z
