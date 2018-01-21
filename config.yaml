@@ -3,7 +3,7 @@ disablePathToLower: true
 languageCode: en-us
 title: Sharing knowledge
 
-paginate: 5
+paginate: 7
 
 # Highlight shortcode and code fences (```) will be treated similarly
 pygmentsCodefences : true
@@ -29,14 +29,11 @@ params:
   disableReadingTime: true
 menu:
   main:
-    - Name: "Home"
+    - Name: "Blog"
       URL: "/"
       weight: -5
-    - Name: "Articles"
-      URL: "/categories/article/"
-      weight: -3
     - Name: "Reading List"
-      URL: "/categories/reading-list/"
+      URL: "/readinglist/"
       weight: -1
     - Name: "About me"
       URL: "/about/"

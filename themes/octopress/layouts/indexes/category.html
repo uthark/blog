@@ -15,9 +15,9 @@
         <div id="blog-archives" class="category">
           {{ range .Data.Pages }}
           <article>
-            <h1>
+            <h2>
               <a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a>
-            </h1>
+            </h2>
             <footer>
               {{ if isset .Params "categories" }}
               <span class="categories">
