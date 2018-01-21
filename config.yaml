@@ -39,6 +39,11 @@ menu:
       URL: "/about/"
       weight: 0
 
+taxonomies:
+  tag: "tags"
+  category: "categories"
+  
+
 # Sidebar menus
 # Enable with "sidebarMenuEnabled = true" under [params]
 # Header text is "sidebarMenuHeader" under [params]
