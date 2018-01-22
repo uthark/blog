@@ -19,64 +19,65 @@ By default, Mockito provides the following methods of mock initialization:
 
 1. Using [Mockito.mock]
 
-Initialize mocks with Mockito.mock:
-```java 
-public void FooTest {
-    
-    private Foo foo;
+    Initialize mocks with Mockito.mock:
+    ```java 
+    public void FooTest {
+        
+        private Foo foo;
 
-    @Before
-    public void setUp() {
-        FooDependency dep = Mockito.mock(FooDependency.class);
-        foo = new Foo(dep);
+        @Before
+        public void setUp() {
+            FooDependency dep = Mockito.mock(FooDependency.class);
+            foo = new Foo(dep);
+        }
     }
-}
-```
+    ```
 
-This is the simplest case.
+    This is the simplest case.
 
 2. Using [MockitoAnnotations].
-Initialize mocks with MockitoAnnotations:
+    Initialize mocks with MockitoAnnotations:
 
-```java 
-public void FooTest {
-    
-    private Foo foo;
+    ```java 
+    public void FooTest {
+        
+        private Foo foo;
 
-    @Mock
-    private FooDependency dep;
+        @Mock
+        private FooDependency dep;
 
-    @Before
-    public void setUp() {
-        MockitoAnnotations.initMocks(this);
-        foo = new Foo(dep);
+        @Before
+        public void setUp() {
+            MockitoAnnotations.initMocks(this);
+            foo = new Foo(dep);
+        }
     }
-}
-```
+    ```
 
-This method is useful when you have a lot of mocks to inject.
+    This method is useful when you have a lot of mocks to inject.
 
 3. Using [MockitoJUnitRunner]
 
-Initialize mocks with MockitoJUnitRunner:
+    Initialize mocks with MockitoJUnitRunner:
 
-```java 
-@RunWith(MockitoJUnitRunner.class)
-public void FooTest {
-    
-    private Foo foo;
+    ```java 
+    @RunWith(MockitoJUnitRunner.class)
+    public void FooTest {
+        
+        private Foo foo;
 
-    @Mock
-    private FooDependency dep;
+        @Mock
+        private FooDependency dep;
 
-    @Before
-    public void setUp() {
-        foo = new Foo(dep);
+        @Before
+        public void setUp() {
+            foo = new Foo(dep);
+        }
     }
-}
-```
+    ```
 
-I want to show you another method, by using custom JUnit `@Rule`.
+
+I want to show you another option, by using custom JUnit `@Rule`.
 
 First, we need to implement [TestRule] interface which allows to implement custom behaviour during test execution:
 
