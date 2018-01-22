@@ -42,8 +42,9 @@ menu:
 taxonomies:
   tag: "tags"
   category: "categories"
-  
 
+blackfriday:
+  hrefTargetBlank: true
 # Sidebar menus
 # Enable with "sidebarMenuEnabled = true" under [params]
 # Header text is "sidebarMenuHeader" under [params]

@@ -1,5 +1,5 @@
 ---
-categories: 
+categories:
 - announcements
 comments: false
 date: 2017-11-21

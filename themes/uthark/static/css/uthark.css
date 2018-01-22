@@ -25,6 +25,7 @@ del,
 dfn,
 em,
 img,
+input,
 ins,
 kbd,
 q,
@@ -135,19 +136,19 @@ summary {
     display: block
 }
 a {
-    color: #1863a1
+  color: #1863a1
 }
 a:visited {
-    color: #751590
+    color: blue
 }
 a:focus {
-    color: #0181eb
+    color: green;
 }
 a:hover {
-    color: #0181eb
+    color: red; /* #0181eb */
 }
 a:active {
-    color: #01579f
+    color: black
 }
 aside.sidebar a {
     color: #222
@@ -178,50 +179,11 @@ body>div>div {
     /*background: #f8f8f8 top left;*/
     /*border-right: 1px solid #e0e0e0*/
 }
-.heading,
-body>header h1,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: "Go Mono", "Anonymous Pro","Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
-}
-.sans,
-body>header h2,
-article header p.meta,
-article>footer,
-#content .blog-index footer,
-html .gist .gist-file .gist-meta,
-#blog-archives a.category,
-#blog-archives time,
-aside.sidebar section,
-body>footer {
-    font-family: "Go Mono", "Anonymous Pro","Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
-}
-.serif,
-body,
-#content .blog-index a[rel=full-article] {
-    /* font-family: "PT Serif", Georgia, Times, "Times New Roman", serif */
-}
-.mono,
-pre,
-code,
-tt,
-p code,
-li code {
-    font-family: "Go Mono", "Anonymous Pro","Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
-}
 body>header h1 {
     font-size: 1.5em;
-    font-family: "Go Mono", "Anonymous Pro","Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
     font-weight: normal;
     line-height: 1.2em;
     margin-bottom: 0.6667em
-}
-body>header h2 {
-    font-family: "Go Mono", "Anonymous Pro","Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
 }
 body {
     line-height: 1.5em;
@@ -253,7 +215,7 @@ h6 {
 }
 h2,
 section h1 {
-    font-size: 1.5em
+    font-size: 1.4em
 }
 h3,
 section h2,
@@ -264,18 +226,18 @@ h4,
 section h3,
 section section h2,
 section section section h1 {
-    font-size: 1em
+    font-size: 1.2em
 }
 h5,
 section h4,
 section section h3 {
-    font-size: .9em
+    font-size: 1.1em
 }
 h6,
 section h5,
 section section h4,
 section section section h3 {
-    font-size: .8em
+    font-size: 1.0em
 }
 p,
 article blockquote,
@@ -818,7 +780,6 @@ body>nav form {
 body>nav form .search {
     padding: .3em .5em 0;
     font-size: .85em;
-    font-family: "Go Mono", "Anonymous Pro","Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
     line-height: 1.1em;
     width: 95%;
     /*-webkit-border-radius: 0.5em;*/
@@ -910,12 +871,9 @@ body>nav ul {
     }
     body>nav a {
         color: #6b6b6b;
-        font-family: "Go Mono", "Anonymous Pro","Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
-        /*text-shadow: #ebebeb 0 1px;*/
         float: left;
         text-decoration: none;
         font-size: 1.1em;
-        /*padding: .1em 0;*/
         line-height: 1.5em
     }
     body>nav a:visited {
@@ -1183,8 +1141,7 @@ article>footer p.meta {
     padding-bottom: 0
 }
 #content .blog-index article {
-    padding-top: 2em;
-    font-family: "Go Mono", "Anonymous Pro","Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
+    padding-top: 2.5em;
 }
 #content .blog-index article header {
     background: none;
@@ -1253,22 +1210,6 @@ article>footer .byline ~ .categories:before {
 #content div.pagination a:hover {   /* hover color for pagination links/icons */
     color: #0181eb
 }
-
-/* if you want to send pagination icons/links to left or right, you can use these labels
-#content div.pagination a.prev {
-    position: absolute;
-    left: 0
-}
-#content div.pagination a.next {
-    position: absolute;
-    right: 0
-}
-#content div.pagination a[href*=archive]:before,
-#content div.pagination a[href*=archive]:after {
-    content: '\2014';
-    padding: 0 .3em
-}
-*/
 
 p.meta+.sharing {
     padding-top: 1em;
@@ -1442,7 +1383,6 @@ li pre code {
 .pre-code,
 html .gist .gist-file .gist-syntax .highlighttable pre,
 .highlighttable code {
-    font-family: "Go Mono", "Anonymous Pro","Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
     overflow: scroll;
     overflow-y: hidden;
     display: block;
@@ -1800,7 +1740,6 @@ figure.code figcaption { /* figcaption changes */
     -webkit-border-top-right-radius: 5px;
     border-top-right-radius: 5px;
     background: #aaa top repeat-x;
-    font-family: "Go Mono", "Anonymous Pro","Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
     border: 1px solid #565656;
     border-top-color: #cbcbcb;
     border-left-color: #a5a5a5;
@@ -1920,7 +1859,6 @@ figure.code figcaption a:hover {
         text-align: right;
         left: 0em;
         top: 3em; /* may need to change this to align the month/date on the tag/category (archive) pages with post name */
-        font-family: "Go Mono", "Anonymous Pro","Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
     }
 
    /* #blog-archives .year {
@@ -2184,8 +2122,8 @@ footer span.categories a.label:first-child{
 }
 a.label:hover,
 a.label:focus {
-  color: #fff;
-  text-decoration: none;
+  /* color: #000; */
+  /* text-decoration: none; */
   cursor: pointer;
 }
 
@@ -2214,11 +2152,6 @@ a.label:visited {
 
 .linenodiv {
     background-color: #002B36!important;
-}
-
-/* because we have changed the font-family of everything, we need to change it for the code inside pre to fit with line numbers */
-pre span {
-    font-family: "Go Mono", "Anonymous Pro","Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
 }
 
 td.code {
