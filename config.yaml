@@ -20,13 +20,17 @@ params:
   truncate : false
   author: Oleg Atamanenko
   # Switch to true to enable RSS icon link
+  textrss: true
   rss : true
+  customRSSURL: https://feeds.feedburner.com/atamanenko
 
   # Search engine URL
   searchEngineURL : "https://www.google.com/search"
   sidebarMenuEnabled: false
   sidebarMenuHeader: "Sidebar"
   disableReadingTime: true
+  
+  googleAnalytics: UA-8688665-1
 menu:
   main:
     - Name: "Blog"
