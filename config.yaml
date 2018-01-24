@@ -36,10 +36,10 @@ menu:
     - Name: "Blog"
       URL: "/"
       weight: -5
-    - Name: "Reading List"
+    - Name: "Reading Lists"
       URL: "/readinglist/"
       weight: -1
-    - Name: "About me"
+    - Name: "About"
       URL: "/about/"
       weight: 0
 
