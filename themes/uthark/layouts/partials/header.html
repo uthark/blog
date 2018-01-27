@@ -9,7 +9,9 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
 
+{{ if not .Site.BuildDrafts }}
   <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/go-mono" type="text/css"/>
+{{ end }}
 
   <!-- goes into the title bar -->
   <title>{{ .Title }}</title>
@@ -23,8 +25,10 @@
     <link rel="stylesheet" href="{{ $.Site.BaseURL }}{{ . }}">
   {{ end }}
 
+{{ if not .Site.BuildDrafts }}
   <!-- For sidebar icons - TODO: find local icons I guess-->
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+{{ end }}
 
   <!-- Icons -->
   <link href="{{ "/favicon.png" | absURL }}" rel="icon">
