@@ -38,6 +38,9 @@ menu:
       weight: -5
     - Name: "Reading Lists"
       URL: "/readinglist/"
+      weight: -3
+    - Name: "Categories"
+      URL: "/categories/"
       weight: -1
     - Name: "About"
       URL: "/about/"
