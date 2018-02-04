@@ -29,8 +29,14 @@ params:
   sidebarMenuEnabled: false
   sidebarMenuHeader: "Sidebar"
   disableReadingTime: true
-  
+
   googleAnalytics: UA-8688665-1
+
+  twitter:
+    card: "summary"
+    site: "@LinkageError"
+    creator: "@LinkageError"
+
 menu:
   main:
     - Name: "Blog"

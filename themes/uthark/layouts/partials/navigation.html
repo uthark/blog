@@ -16,21 +16,21 @@
   {{ if or .Site.Params.rss .Site.Params.textrss }}
     {{ if .Site.Params.rss }}
         {{ if not .Site.Params.customRSSURL  }}
-        <a href="{{ "/index.xml" | absURL }}" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+        <li><a href="{{ "/index.xml" | absURL }}" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a></li>
         {{ end }}
         {{ with .Site.Params.customRSSURL }}
-        <a href="{{ . }}" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+        <li><a href="{{ . }}" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a></li>
         {{ end }}
-        
+
     {{ else }}
-    
+
         {{ if not .Site.Params.customRSSURL  }}
         <li><a href="/index.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
         {{ end }}
         {{ with .Site.Params.customRSSURL }}
         <li><a href="{{ . }}" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
         {{ end }}
-        
+
     {{ end }}
   {{ end }}
 
@@ -39,7 +39,7 @@
 {{ with .Site.Params.searchEngineURL }}
 <form action="{{ . }}" method="get" target="_blank">
   <fieldset role="search">
-  	<input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  	<input class="search" type="text" name="q" placeholder="Search"/>
     <input type="hidden" name="q" value="site:{{ "/" | absURL }}" />
   </fieldset>
 </form>

@@ -5,6 +5,8 @@ categories:
 - golang
 - yaml
 - go-restful
+twitter:
+  image: 
 ---
 
 [go-restful] is a [go] package used for building REST-style web services.
@@ -30,7 +32,7 @@ What we need to do is to implement this interface and register it in go-restful.
 
 Let’s implement the interface:
 
-``` go 
+``` go
 package restyaml
 
 import (
@@ -146,7 +148,7 @@ $ curl http://localhost:8080/task
    "dateAdded": "2018-01-20T20:05:09.378Z",
    "dateCompleted": "0001-01-01T00:00:00Z"
   }
- ]                        
+ ]
 ```
 
 If you have any questions, feel free to ping me on Twitter.

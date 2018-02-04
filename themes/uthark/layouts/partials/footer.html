@@ -1,4 +1,4 @@
-<footer role="contentinfo">
+<footer>
     <!-- Sidebar social network icons -->
     <div class="center">
         <ul class="sidebar-nav">
@@ -32,13 +32,13 @@
     </div>
     <p>Copyright &copy; 2009&nbsp;—&nbsp;{{ now.Format "2006" }} {{ .Site.Params.author }} - <a href="{{ "/license/" | absURL }}">License</a> -
         <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a>, uses custom theme based on
-            <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+            <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.</span>
     </p>
 
 </footer>
 {{ if not .Site.BuildDrafts }}
 {{ with .Site.Params.googleAnalytics }}
-<script async>
+<script>
     var _gaq = [['_setAccount', '{{ . }}'], ['_trackPageview']];
     (function (d, t) {
         var g = d.createElement(t), s = d.getElementsByTagName(t)[0];

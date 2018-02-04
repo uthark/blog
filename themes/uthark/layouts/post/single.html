@@ -3,7 +3,7 @@
 <div id="main">
   <div id="content">
     <div>
-      <article class="hentry" role="article">
+      <article class="hentry">
 
         {{ .Scratch.Set "isHome" false }}
         {{ partial "post_header.html" . }}
@@ -19,6 +19,7 @@
         </div>
         {{ partial "post_footer.html" . }}
       </article>
+      
     </div>
     {{ partial "sidebar.html" . }}
   </div>

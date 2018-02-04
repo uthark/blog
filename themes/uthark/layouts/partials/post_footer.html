@@ -14,17 +14,17 @@
 
   <p class="meta">
     <!-- can't put the .Date.Format inside the datetime attribute because of double quotes, so it's outside -->
-    Last update: <time>{{ .Date.Format "Jan 2, 2006" }}</time>
+    Last update: <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
     {{ if isset .Params "tags" }}
     <span class="categories">
         Tags:
       <!-- need to convert the tags to lower for the URLs to work -->
           {{ range .Params.tags }}<a class="category" href="{{ "/tags/" | absURL }}{{ . | urlize | lower }}">{{ . -}}</a>  {{ end }}
-    {{ end }}
     </span>
+    {{ end }}
   </p>
   <!-- For sharing stuff -->
- 
+
 
   <!-- PrevInSection and nextInSection point to previous and next page in the same section, in this case "post"
        this way we won't see other pages.
