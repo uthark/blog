@@ -3,6 +3,8 @@ disablePathToLower: true
 languageCode: en-us
 title: Sharing knowledge
 
+theme: uthark
+
 paginate: 7
 
 # Highlight shortcode and code fences (```) will be treated similarly
@@ -44,10 +46,13 @@ menu:
       weight: -5
     - Name: "Reading Lists"
       URL: "/readinglist/"
-      weight: -3
+      weight: -4
     - Name: "Categories"
       URL: "/categories/"
-      weight: -1
+      weight: -3
+    - Name: "Useful Articles"
+      URL: "/usefularticles/"
+      weight: -2
     - Name: "About"
       URL: "/about/"
       weight: 0
