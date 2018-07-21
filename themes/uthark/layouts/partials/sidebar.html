@@ -16,7 +16,7 @@
 
 {{ if and (gt .WordCount 100 ) (ne .Params.toc "false") (gt (len .TableOfContents) 5 ) }}
 <section class="even">
-  <span>Table of Contents</span>
+  <div class="toc-header">Table of Contents</div>
    {{ .TableOfContents }}
 </section>
 {{ end }}

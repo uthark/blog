@@ -6,7 +6,7 @@ categories:
 - yaml
 - go-restful
 twitter:
-  image: 
+  image:
 ---
 
 [go-restful] is a [go] package used for building REST-style web services.
@@ -150,8 +150,6 @@ $ curl http://localhost:8080/task
   }
  ]
 ```
-
-If you have any questions, feel free to ping me on Twitter.
 
 [go-restful]: https://github.com/emicklei/go-restful
 [go]: https://golang.org

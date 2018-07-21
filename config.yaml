@@ -1,16 +1,27 @@
 baseURL: https://uthark.github.io
 disablePathToLower: true
 languageCode: en-us
+
 title: Sharing knowledge
 
 theme: uthark
 
 paginate: 7
 
+pygmentsOptions: [linenos]
 # Highlight shortcode and code fences (```) will be treated similarly
-pygmentsCodefences : true
+pygmentsCodefences: true
+
+# Set to true to try to do syntax highlighting on code fenced blocks in markdown
+#  without a language tag.
+pygmentsCodefencesGuessSyntax: true
+
+pygmentsUseClasses: true
+
+pygmentsUseClassic: false
 
 params:
+  subtitle: by Oleg Atamanenko
   github : "https://github.com/uthark/"
   bitbucket : "https://bitbucket.org/uthark/"
   twitter : "https://twitter.com/LinkageError/"

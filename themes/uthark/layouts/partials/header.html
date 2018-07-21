@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html prefix="og: http://ogp.me/ns#">
-<head >
+<html prefix="og: http://ogp.me/ns#" lang="en">
+<head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
   <!-- added from octo -->
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=5">
 
   <!-- goes into the title bar -->
   <title>{{ .Title }}</title>
@@ -17,9 +17,9 @@
 
   <meta name="author" content="{{ .Site.Params.author }}">
 
-{{ if not .Site.BuildDrafts }}
+
   <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/go-mono" type="text/css"/>
-{{ end }}
+  <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Arvo" type="text/css"/>
 
 
   <!-- css -->
@@ -31,10 +31,8 @@
     <link rel="stylesheet" href="{{ $.Site.BaseURL }}{{ . }}">
   {{ end }}
 
-{{ if not .Site.BuildDrafts }}
   <!-- For sidebar icons - TODO: find local icons I guess-->
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-{{ end }}
 
   <!-- Icons -->
   <link href="{{ "/favicon.png" | absURL }}" rel="icon">
@@ -58,8 +56,11 @@
 </head>
 <body{{ with .Site.Params.theme }} class="{{ . }}"{{ end }}>
 
-<!-- top header for octopress -->
-<header>{{ partial "octo-header.html" . }}</header>
+<header>
+  <!-- Remember that .Title will refer to the title of the specific page. For index it is the .Site.Title but is different for individual pages -->
+  <h1><a href="{{ "/" | absURL }}">{{ .Site.Title }}</a></h1>
+    {{ with .Site.Params.subtitle}}<h2>{{ . }}</h2>{{ end }}
+</header>
 
 <!-- navigation -->
 <nav>{{ partial "navigation.html" . }}</nav>
