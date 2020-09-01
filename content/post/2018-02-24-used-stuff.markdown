@@ -69,21 +69,6 @@ Unfortunately, have books bought via different books stores, so use different de
 * Google Play Books
 * Pocket
 
-#### Productivity
-* Evernote
-* Dropbox
-* Omnifocus 3
-* Fantastical 2
-* Google Play Music - Music subscription service.
-* PocketCasts
-* Launch
-* SWORKIT Pro
-* Dark Sky - Weather application.
-* OmniOutliner - Outline Software.
-* Feedly - RSS Reader.
-* MindNode - iOS version of the application.
-* Wunderlist - The only reason for a second task list is that it allows to share list between people. I share one list with my spouse for tracking groceries we need to buy.
-
 ### Games
 Although, I don't play games heavily, I have few games installed that I would recommend:
 
