@@ -24,10 +24,9 @@ params:
   subtitle: by Oleg Atamanenko
   github : "https://github.com/uthark/"
   bitbucket : "https://bitbucket.org/uthark/"
-  twitter : "https://twitter.com/LinkageError/"
+  twitter : "https://twitter.com/real_atamanenko/"
   keybase : "https://keybase.io/uthark/"
   stackoverflow: "http://stackoverflow.com/users/216764/uthark"
-  googleplus: "https://plus.google.com/+OlegAtamanenko"
 
   # If false, all of blog post will appear on front page (and in pagination)
   truncate : false
