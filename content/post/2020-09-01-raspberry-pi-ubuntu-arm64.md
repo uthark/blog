@@ -15,7 +15,7 @@ tags:
 - wi-fi
 ---
 
-After discovering that by default Raspberry installs 32-bit OS, I wanted to reinstall 64 bit.
+After discovering that by default Raspberry installs [32-bit Raspbian OS](https://www.raspberrypi.org/downloads/raspberry-pi-os/), I wanted to reinstall it with a 64 bit - this would allow to run Kubernetes on Raspberry 
 
 Decided to go with [Ubuntu Server 64](https://ubuntu.com/download/raspberry-pi).
 
@@ -54,4 +54,3 @@ Finally, did the following:
    sudo netplan --debug generate
    sudo netplan --debug apply
    ```
-<!--more-->
