@@ -56,13 +56,13 @@ menu:
       weight: -5
     - Name: "Reading Lists"
       URL: "/readinglist/"
-      weight: -4
+      weight: -1
     - Name: "Categories"
       URL: "/categories/"
-      weight: -3
+      weight: -2
     - Name: "Useful Articles"
       URL: "/usefularticles/"
-      weight: -2
+      weight: -3
     - Name: "About"
       URL: "/about/"
       weight: 0
