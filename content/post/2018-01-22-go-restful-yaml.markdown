@@ -2,6 +2,9 @@
 title: How to add YAML support to go-restful
 date: 2018-01-22
 categories:
+- development
+- golang
+tags:
 - golang
 - yaml
 - go-restful
