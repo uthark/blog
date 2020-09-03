@@ -1,7 +1,7 @@
 ---
 title: "Installing Kubernetes on Raspberry Pi"
 date: 2020-09-02T20:44:30-07:00
-draft: true
+draft: false
 categories:
 - kubernetes
 - raspberrypi
