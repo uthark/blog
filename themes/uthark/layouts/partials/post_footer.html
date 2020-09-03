@@ -10,20 +10,25 @@
     <!-- <br/> this will make the categories go to the second line and mess with the title -->
     <!-- in order to make category URLs work, we need to urlize them and then convert them to lowercase
          e.g. .NET Remoting -urlize-> .NET-Remoting -lowercase-> .net-remoting -->
-    Filed under: {{ range .Params.categories }}<a class="label" href="{{ "/categories/" | absURL }}{{ . | urlize | lower }}/">{{ . }}</a>{{ end }}
+    Filed under: {{ range .Params.categories }}<a class="label"
+      href="{{ "/categories/" | absURL }}{{ . | urlize | lower }}/">{{ . }}</a>{{ end }}
     {{ end }}
   </p>
 
   <p class="meta">
     <!-- can't put the .Date.Format inside the datetime attribute because of double quotes, so it's outside -->
     Last update: <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+
     {{ if isset .Params "tags" }}
+  <div>
     <span class="categories">
-        Tags:
+      Tags:
       <!-- need to convert the tags to lower for the URLs to work -->
-          {{ range .Params.tags }}<a class="category" href="{{ "/tags/" | absURL }}{{ . | urlize | lower }}">{{ . -}}</a>  {{ end }}
+      {{ range .Params.tags }}<a class="category" href="{{ "/tags/" | absURL }}{{ . | urlize | lower }}/">{{ . -}}</a>
+      {{ end }}
     </span>
-    {{ end }}
+  </div>
+  {{ end }}
   </p>
   <!-- For sharing stuff -->
 
@@ -37,16 +42,16 @@
 
   <p class="meta">
     {{ with .PrevInSection }}
-        <a class="basic-alignment left" href="{{ .Permalink }}" title="{{ .LinkTitle }}">{{ .LinkTitle }}</a>
+    <a class="basic-alignment left" href="{{ .Permalink }}" title="{{ .LinkTitle }}">{{ .LinkTitle }}</a>
     {{ end }}
 
     {{ with .NextInSection }}
-      <a class="basic-alignment right" href="{{ .Permalink }}" title="{{ .LinkTitle }}">{{ .LinkTitle }}</a>
+    <a class="basic-alignment right" href="{{ .Permalink }}" title="{{ .LinkTitle }}">{{ .LinkTitle }}</a>
     {{ end }}
   </p>
   {{ if .Site.DisqusShortname }}
-    {{ if not (eq .Params.comments false) }}
-      {{ template "_internal/disqus.html" . }}
-    {{ end }}
+  {{ if not (eq .Params.comments false) }}
+  {{ template "_internal/disqus.html" . }}
+  {{ end }}
   {{ end }}
 </footer>
