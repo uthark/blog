@@ -17,7 +17,7 @@
 
   <p class="meta">
     <!-- can't put the .Date.Format inside the datetime attribute because of double quotes, so it's outside -->
-    Last update: <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+    Last update: <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Lastmod.Format "Jan 2, 2006" }}</time>
 
     {{ if isset .Params "tags" }}
   <div>
@@ -42,11 +42,11 @@
 
   <p class="meta">
     {{ with .PrevInSection }}
-    <a class="basic-alignment left" href="{{ .Permalink }}" title="{{ .LinkTitle }}">{{ .LinkTitle }}</a>
+    <a class="basic-alignment left" href="{{ .Permalink }}" title="{{ .LinkTitle }}">&lt;&lt;&nbsp;{{ .LinkTitle }}</a>
     {{ end }}
 
     {{ with .NextInSection }}
-    <a class="basic-alignment right" href="{{ .Permalink }}" title="{{ .LinkTitle }}">{{ .LinkTitle }}</a>
+    <a class="basic-alignment right" href="{{ .Permalink }}" title="{{ .LinkTitle }}">{{ .LinkTitle }}&nbsp;&gt;&gt;</a>
     {{ end }}
   </p>
   {{ if .Site.DisqusShortname }}
