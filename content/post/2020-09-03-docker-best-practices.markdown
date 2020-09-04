@@ -63,6 +63,7 @@ COPY ...
 	
 4. Use own docker registry. Rebuild all required base images yourself and use them. This will allow you to control which base image are being used.
 5. Prohibit running docker containers from `docker.io` in production. If you run in kubernetes, use [Open Policy Agent Gatekeeper](https://github.com/open-policy-agent/gatekeeper) or similar solution. docker.io contains a lot of images that are build both by well-known companies and by random people, not all of them have good intentions.
+6. Do not store any sensitive information in the image. No passwords, no cloud credentials. Pass them either via mounted volume or via `ENV` variables.
 
 ## Improve maintainability
 1. Add [`LABEL`](https://docs.docker.com/engine/reference/builder/#label) with information about image maintainer and other information that is relevant for your organization.
