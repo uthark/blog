@@ -44,25 +44,25 @@ Principle of least privilege should be used as much as possible. Within its cgro
  
 3. Use digest/`@sha256` in `FROM` to specify exact version of the container you’re pulling. Digest is shown on tag page on docker hub or you can get it after running `docker pull`:
 
-			 ```
-			 $ docker pull alpine:3.12.0
-			 3.12.0: Pulling from library/alpine
-			 df20fa9351a1: Pull complete
-			 Digest: sha256:185518070891758909c9f839cf4ca393ee977ac378609f700f60a771a2dfe321
-			 Status: Downloaded newer image for alpine:3.12.0
-			 docker.io/library/alpine:3.12.0
-			 ```
+```
+ $ docker pull alpine:3.12.0
+ 3.12.0: Pulling from library/alpine
+ df20fa9351a1: Pull complete
+ Digest: sha256:185518070891758909c9f839cf4ca393ee977ac378609f700f60a771a2dfe321
+ Status: Downloaded newer image for alpine:3.12.0
+ docker.io/library/alpine:3.12.0
+```
 
-		`Dockerfile` will looks like this:
-		
-		```
-		FROM alpine@sha256:185518070891758909c9f839cf4ca393ee977ac378609f700f60a771a2dfe321
-		COPY ...
-		# And so on.
-		``` 
-		
-	4. Use own docker registry. Rebuild all required base images yourself and use them. This will allow you to control which base image are being used.
-	5. Prohibit running docker containers from `docker.io` in production. If you run in kubernetes, use [Open Policy Agent Gatekeeper](https://github.com/open-policy-agent/gatekeeper) or similar solution. docker.io contains a lot of images that are build both by well-known companies and by random people, not all of them have good intentions.
+`Dockerfile` will looks like this:
+	
+```
+FROM alpine@sha256:185518070891758909c9f839cf4ca393ee977ac378609f700f60a771a2dfe321
+COPY ...
+# And so on.
+``` 
+	
+4. Use own docker registry. Rebuild all required base images yourself and use them. This will allow you to control which base image are being used.
+5. Prohibit running docker containers from `docker.io` in production. If you run in kubernetes, use [Open Policy Agent Gatekeeper](https://github.com/open-policy-agent/gatekeeper) or similar solution. docker.io contains a lot of images that are build both by well-known companies and by random people, not all of them have good intentions.
 
 ## Improve maintainability
 1. Add [`LABEL`](https://docs.docker.com/engine/reference/builder/#label) with information about image maintainer and other information that is relevant for your organization.
