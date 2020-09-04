@@ -8,6 +8,7 @@ hugo --theme uthark
 (
   # Go To Public folder
   cd public || exit
+  git pull
   # Add changes to git.
   git add .
 
