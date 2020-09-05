@@ -24,7 +24,6 @@ params:
   subtitle: by Oleg Atamanenko
   github : "https://github.com/uthark/"
   bitbucket : "https://bitbucket.org/uthark/"
-  twitter : "https://twitter.com/real_atamanenko/"
   keybase : "https://keybase.io/uthark/"
   stackoverflow: "http://stackoverflow.com/users/216764/uthark"
 
@@ -45,13 +44,14 @@ params:
   googleAnalytics: UA-8688665-1
 
   twitter:
+    url: "https://twitter.com/real_atamanenko"
     card: "summary"
-    site: "@LinkageError"
-    creator: "@LinkageError"
+    site: "@real_atamanenko"
+    creator: "@real_atamanenko"
 
 menu:
   main:
-    - Name: "Blog"
+    - Name: "Posts"
       URL: "/"
       weight: -5
     - Name: "Reading Lists"
@@ -60,7 +60,7 @@ menu:
     - Name: "Categories"
       URL: "/categories/"
       weight: -2
-    - Name: "Useful Articles"
+    - Name: "Links"
       URL: "/usefularticles/"
       weight: -3
     - Name: "About"
