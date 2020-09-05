@@ -11,7 +11,7 @@
         </header>
         <div id="blog-archives" class="category">
             <ul>
-          {{ range .Data.Pages }}
+          {{ range .Data.Pages.ByTitle }}
             <li>
               <a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a>
           </li>

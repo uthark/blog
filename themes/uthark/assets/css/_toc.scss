@@ -1,0 +1,31 @@
+div.toc-header {
+  font-size: 1.2em;
+
+}
+
+aside.sidebar nav#TableOfContents {
+  ul {
+    padding: 0;
+
+    margin-left: 1em;
+    margin-bottom: 0;
+
+    li {
+      margin: 0;
+      padding: 0 0 0.25em;
+      list-style-type: decimal;
+
+      a {
+        text-decoration: none;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      ul {
+        display: none;
+      }
+    }
+  }
+}

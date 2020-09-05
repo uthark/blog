@@ -4,35 +4,33 @@
         <ul class="sidebar-nav">
             <li class="sidebar-nav-item">
                 {{ with .Site.Params.github }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i
-                    class="fa fa-github fa-3x"></i></a>{{ end }}</li>
+                    class="fa fa-github fa-2x"></i></a>{{ end }}</li>
             <li class="sidebar-nav-item">    {{ with .Site.Params.bitbucket }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i
-                    class="fa fa-bitbucket fa-3x"></i></a>{{ end }}
+                    class="fa fa-bitbucket fa-2x"></i></a>{{ end }}
             <li class="sidebar-nav-item">{{ with .Site.Params.gitlab }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i
-                    class="fa fa-gitlab fa-3x"></i></a>{{ end }}
-            <li class="sidebar-nav-item">{{ with .Site.Params.twitter }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i
-                    class="fa fa-twitter fa-3x"></i></a>{{ end }}
+                    class="fa fa-gitlab fa-2x"></i></a>{{ end }}
+            <li class="sidebar-nav-item">{{ with .Site.Params.twitter.url }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i
+                    class="fa fa-twitter fa-2x"></i></a>{{ end }}
             <li class="sidebar-nav-item">{{ with .Site.Params.keybase }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i
-                    class="fa fa-key fa-3x"></i></a>{{ end }} <!-- added keybase -->
+                    class="fa fa-key fa-2x"></i></a>{{ end }} <!-- added keybase -->
             <li class="sidebar-nav-item">{{ with .Site.Params.linkedin }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i
-                    class="fa fa-linkedin fa-3x"></i></a>{{ end }}
+                    class="fa fa-linkedin fa-2x"></i></a>{{ end }}
             <li class="sidebar-nav-item">{{ with .Site.Params.stackOverflow }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i
-                    class="fa fa-stack-overflow fa-3x"></i></a>{{ end }}
+                    class="fa fa-stack-overflow fa-2x"></i></a>{{ end }}
             <li class="sidebar-nav-item">{{ with .Site.Params.googleplus }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i
-                    class="fa fa-google-plus fa-3x"></i></a>{{ end }}
+                    class="fa fa-google-plus fa-2x"></i></a>{{ end }}
             <li class="sidebar-nav-item">{{ with .Site.Params.facebook }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i
-                    class="fa fa-facebook fa-3x"></i></a>{{ end }}
+                    class="fa fa-facebook fa-2x"></i></a>{{ end }}
             <li class="sidebar-nav-item">{{ with .Site.Params.youtube }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i
-                    class="fa fa-youtube fa-3x"></i></a>{{ end }}
+                    class="fa fa-youtube fa-2x"></i></a>{{ end }}
             <li class="sidebar-nav-item">{{ with .Site.Params.instagram }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i
-                    class="fa fa-instagram fa-3x"></i></a>{{ end }}
+                    class="fa fa-instagram fa-2x"></i></a>{{ end }}
                 <!-- don't need RSS here anymore -->
                 <!-- {{ if .Site.Params.rss }}<a href="{{ "/index.xml" | absURL }}" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-3x"></i></a>{{ end }} -->
             </li>
         </ul>
     </div>
-    <p>Copyright &copy; 2009&nbsp;—&nbsp;{{ now.Format "2006" }} {{ .Site.Params.author }} - <a href="{{ "/license/" | absURL }}">License</a> -
-        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a>, uses custom theme based on
-            <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.</span>
+    <p>&copy;&nbsp;2009&nbsp;—&nbsp;{{ now.Format "2006" }} {{ .Site.Params.author }} - <a href="{{ "/license/" | absURL }}">CC&nbsp;BY-SA&nbsp;4.0</a>
     </p>
 
 </footer>

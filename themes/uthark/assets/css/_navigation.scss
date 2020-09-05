@@ -1,0 +1,180 @@
+@import "mixins";
+
+body > nav {
+  position: relative;
+
+  padding-left: 18px;
+  padding-right: 18px;
+
+
+  @include sm {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  @include md {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+  @include lg {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  form {
+    -webkit-background-clip: padding;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    margin: 0;
+    padding: 0;
+
+    .search {
+      padding: .3em .5em 0;
+      font-size: .85em;
+      line-height: 1.1em;
+      width: 95%;
+      -webkit-background-clip: padding;
+      -moz-background-clip: padding;
+      background-clip: padding-box;
+      border: 1px solid #b3b3b3;
+      color: #888;
+
+      &:focus {
+        color: #444;
+        border-color: #80b1df;
+        -webkit-box-shadow: #80b1df 0 0 4px, #80b1df 0 0 3px inset;
+        -moz-box-shadow: #80b1df 0 0 4px, #80b1df 0 0 3px inset;
+        box-shadow: #80b1df 0 0 4px, #80b1df 0 0 3px inset;
+        background-color: #fff;
+        outline: none
+      }
+    }
+  }
+
+  fieldset[role=search] {
+    float: right;
+    width: 48%
+  }
+
+  fieldset.mobile-nav {
+    float: left;
+    width: 48%
+  }
+
+  fieldset.mobile-nav select {
+    width: 100%;
+    font-size: .8em;
+    border: 1px solid #888
+  }
+
+}
+
+
+body > nav ul {
+  display: none
+}
+
+@media only screen and (min-width: 550px) {
+  body > nav ul {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    *zoom: 1;
+    float: left;
+    display: block;
+    padding-top: .15em
+  }
+  body > nav form {
+    padding-top: .15em
+  }
+  body > nav ul li {
+    list-style-image: none;
+    list-style-type: none;
+    margin-left: 0;
+    white-space: nowrap;
+    display: inline;
+    float: left;
+    padding-left: 0;
+    padding-right: 0
+  }
+  body > nav ul li:first-child,
+  body > nav ul li.first {
+    padding-left: 0
+  }
+  body > nav ul li:last-child {
+    padding-right: 0
+  }
+  body > nav ul li.last {
+    padding-right: 0
+  }
+  body > nav ul.subscription {
+    margin-left: .8em;
+    float: right
+  }
+  body > nav ul.subscription li:last-child a {
+    padding-right: 0
+  }
+  body > nav ul li {
+    margin: 0
+  }
+  body > nav a {
+    color: #6b6b6b;
+    float: left;
+    text-decoration: none;
+    font-size: 1.1em;
+    line-height: 1.5em
+  }
+  body > nav a:visited {
+    color: #6b6b6b
+  }
+  body > nav a:hover {
+    color: #2b2b2b;
+    text-decoration: underline;
+  }
+  body > nav li + li {
+    /* border-left: 1px solid #b0b0b0; */
+    margin-left: .8em
+  }
+  body > nav li + li a {
+    padding-left: .8em;
+    /* border-left: 1px solid #dedede */
+  }
+  body > nav form {
+    float: right;
+    text-align: left;
+    padding-left: .8em;
+    width: 175px
+  }
+  body > nav form .search {
+    width: 93%;
+    font-size: .95em;
+    line-height: 1.2em
+  }
+  body > nav ul[data-subscription$=email] + form {
+    width: 97px
+  }
+  body > nav ul[data-subscription$=email] + form .search {
+    width: 91%
+  }
+  body > nav fieldset.mobile-nav {
+    display: none
+  }
+  body > nav fieldset[role=search] {
+    width: 99%
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  body > nav form {
+    width: 215px
+  }
+  body > nav ul[data-subscription$=email] + form {
+    width: 147px
+  }
+}
+
+body > nav:after {
+  content: "";
+  display: table;
+  clear: both
+}

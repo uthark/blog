@@ -1,0 +1,21 @@
+
+div.sharing {
+  position: relative;
+  text-align: right;
+  top: 0;
+  z-index: 1;
+  float: right;
+
+  a {
+    color: black;
+
+    &:hover {
+      color: red;
+    }
+
+    i.fa {
+      padding: 0.5em;
+      font-size: 1.5em;
+    }
+  }
+}

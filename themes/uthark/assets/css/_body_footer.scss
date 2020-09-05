@@ -1,0 +1,43 @@
+@import "mixins";
+
+body > footer {
+  font-size: 0.8em;
+  color: #666;
+  border-top: 1px solid #ccc;
+  position: relative;
+  margin-bottom: 1em;
+  z-index: 1;
+  padding: 1em 18px;
+
+
+  @include sm {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  @include md {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+
+  @include lg {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  a {
+    color: #6b6b6b;
+
+    &:visited {
+      @extend a
+    }
+
+    &:hover {
+      color: #484848
+    }
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+}

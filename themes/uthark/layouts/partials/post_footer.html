@@ -2,6 +2,7 @@
 
 <footer>
   <div>
+    <hr/>
     <p>If you have any questions, feel free to ping me on Twitter.</p>
   </div>
   <p class="meta">
@@ -10,9 +11,7 @@
     <!-- <br/> this will make the categories go to the second line and mess with the title -->
     <!-- in order to make category URLs work, we need to urlize them and then convert them to lowercase
          e.g. .NET Remoting -urlize-> .NET-Remoting -lowercase-> .net-remoting -->
-    Filed under: {{ range .Params.categories }}<a class="label"
-      href="{{ "/categories/" | absURL }}{{ . | urlize | lower }}/">{{ . }}</a>{{ end }}
-    {{ end }}
+    Categories: {{ range .Params.categories }}<a class="label" href="{{ "/categories/" | absURL }}{{ . | urlize | lower }}/">#{{ . }}</a>{{ end }}{{ end }}
   </p>
 
   <p class="meta">
@@ -20,14 +19,14 @@
     Last update: <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Lastmod.Format "Jan 2, 2006" }}</time>
 
     {{ if isset .Params "tags" }}
-  <div>
+  <p class="meta">
     <span class="categories">
       Tags:
       <!-- need to convert the tags to lower for the URLs to work -->
-      {{ range .Params.tags }}<a class="category" href="{{ "/tags/" | absURL }}{{ . | urlize | lower }}/">{{ . -}}</a>
+      {{ range sort (.Params.tags) }}<a class="label" href="{{ "/tags/" | absURL }}{{ . | urlize | lower }}/">#{{ . -}}</a>
       {{ end }}
     </span>
-  </div>
+  </p>
   {{ end }}
   </p>
   <!-- For sharing stuff -->
