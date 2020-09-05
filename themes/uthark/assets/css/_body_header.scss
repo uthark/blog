@@ -1,0 +1,60 @@
+@import "fonts";
+@import "mixins";
+
+body header.site {
+  font-size: 1.7em;
+  padding: 1.5em 18px;
+
+  @include sm {
+    padding-left: 25px;
+    padding-right: 25px;
+    font-size: 1em
+  }
+  @include md {
+    padding-left: 35px;
+    padding-right: 35px;
+    font-size: 1.2em;
+  }
+
+  @include lg {
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: 1.3em
+  }
+
+  h1 {
+    display: inline-block;
+    font-size: 2em;
+    font-weight: normal;
+    line-height: 1.2em;
+    margin: 0 0 0.6667em;
+
+    font-family: $font-title;
+
+    @include sm {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: #333;
+      text-decoration: none;
+
+      &:visited, &:hover {
+        @extend a
+      }
+    }
+  }
+
+  h2 {
+    display: inline-block;
+    position: relative;
+    margin: .2em 0 0;
+    font-size: 1em;
+    color: #aaa;
+    font-weight: normal;
+
+    @include sm {
+      float: right;
+    }
+  }
+}

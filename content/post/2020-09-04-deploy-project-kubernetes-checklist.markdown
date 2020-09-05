@@ -9,6 +9,7 @@ categories:
 tags:
 - kubernetes
 - bestpractices
+- checklist
 ---
 
 Deploying to kubernetes is easy: create manifest with your `Deployment` and then `kubectl apply` it.
