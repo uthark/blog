@@ -1,10 +1,22 @@
 <!-- This file contains the footer for each post - do not mistake it with page footer which is in footer.html partial -->
 
 <footer>
+  <div class="sharing">
+    Share:
+    <a href="https://getpocket.com/save?url={{ .Permalink }}" target="_blank" ><i class="fa fa-get-pocket" title="Save to Pocket" aria-hidden="true"></i></a>
+    <a href="https://twitter.com/intent/tweet?text={{ .Title }}&url={{ .Permalink }}" target="_blank" title="Post to Twitter" aria-hidden="true"><i class="fa fa-twitter"></i></a>
+  </div>
   <div>
     <hr/>
     <p>If you have any questions, feel free to ping me on Twitter.</p>
   </div>
+  <p class="meta">
+    Reading time: {{ .ReadingTime }} minutes
+  </p>
+  <p class="meta">
+    <!-- can't put the .Date.Format inside the datetime attribute because of double quotes, so it's outside -->
+    Last update: <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Lastmod.Format "Jan 2, 2006" }}</time>
+  </p>
   <p class="meta">
     {{ if not .Site.Params.disableReadingTime }} - {{ .ReadingTime }} minute read {{ end }}
     {{ if isset .Params "categories" }}
@@ -14,20 +26,17 @@
     Categories: {{ range .Params.categories }}<a class="label" href="{{ "/categories/" | absURL }}{{ . | urlize | lower }}/">#{{ . }}</a>{{ end }}{{ end }}
   </p>
 
-  <p class="meta">
-    <!-- can't put the .Date.Format inside the datetime attribute because of double quotes, so it's outside -->
-    Last update: <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Lastmod.Format "Jan 2, 2006" }}</time>
 
-    {{ if isset .Params "tags" }}
-  <p class="meta">
-    <span class="categories">
-      Tags:
-      <!-- need to convert the tags to lower for the URLs to work -->
-      {{ range sort (.Params.tags) }}<a class="label" href="{{ "/tags/" | absURL }}{{ . | urlize | lower }}/">#{{ . -}}</a>
-      {{ end }}
-    </span>
-  </p>
-  {{ end }}
+{{/*    {{ if isset .Params "tags" }}*/}}
+{{/*  <p class="meta">*/}}
+{{/*    <span class="categories">*/}}
+{{/*      Tags:*/}}
+{{/*      <!-- need to convert the tags to lower for the URLs to work -->*/}}
+{{/*      {{ range sort (.Params.tags) }}<a class="label" href="{{ "/tags/" | absURL }}{{ . | urlize | lower }}/">#{{ . -}}</a>*/}}
+{{/*      {{ end }}*/}}
+{{/*    </span>*/}}
+{{/*  </p>*/}}
+{{/*  {{ end }}*/}}
   </p>
   <!-- For sharing stuff -->
 

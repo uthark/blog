@@ -1,10 +1,7 @@
+@import "mixins";
 
 div.sharing {
-  position: relative;
-  text-align: right;
-  top: 0;
-  z-index: 1;
-  float: right;
+  float: none;
 
   a {
     color: black;

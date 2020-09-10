@@ -1,4 +1,7 @@
 body #content article.hentry {
+  ol, ul {
+    padding-left: 20px;
+  }
 }
 body #content>article,
 body #content>div>article,
@@ -46,9 +49,11 @@ article header {
   padding-bottom: 1em;
   margin-bottom: 1em;
 }
+
 article header h1 {
   margin: 0;
   margin-top: 0.15em;
+  font-size: 1.3em;
 }
 article header h1 a {
   text-decoration: none
@@ -68,7 +73,6 @@ article header p.meta {
 }
 @media only screen and (min-width: 768px) {
   article header {
-    margin-bottom: 1.5em;
-    padding-bottom: 1em;
+    margin-bottom: 0.5em;
   }
 }

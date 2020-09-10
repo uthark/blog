@@ -20,6 +20,50 @@ body > nav {
     padding-right: 40px;
   }
 
+  div.menu {
+    input[type='checkbox'] {
+      display: none;
+    }
+
+    input[type='checkbox'] + label:before {
+      font-family: 'FontAwesome';
+      content: "\f0c9";
+      cursor: pointer;
+      font-size: 1.5rem;
+
+      @include md {
+        display: none;
+      };
+      @include lg {
+        display: none;
+      };
+      @include xl {
+        display: none;
+      };
+    }
+
+    input[type='checkbox']:checked + label:before {
+      content: "\f00d";
+    }
+
+    div.menu-container {
+      @include sm {
+        display: none;
+      }
+    }
+
+    input[type='checkbox']:checked ~ div.menu-container {
+      @include sm {
+        display: block;
+        li {
+          display: block;
+        }
+      }
+    }
+    input[type='checkbox'] ~ div.menu-container {
+    }
+  }
+
   form {
     -webkit-background-clip: padding;
     -moz-background-clip: padding;
@@ -73,29 +117,30 @@ body > nav ul {
   display: none
 }
 
-@media only screen and (min-width: 550px) {
+@media only screen and (min-width: 400px) {
   body > nav ul {
     margin: 0;
-    padding: 0;
     border: 0;
     overflow: hidden;
     *zoom: 1;
-    float: left;
+    //float: left;
     display: block;
     padding-top: .15em
   }
+
   body > nav form {
     padding-top: .15em
   }
+
   body > nav ul li {
     list-style-image: none;
     list-style-type: none;
     margin-left: 0;
     white-space: nowrap;
     display: inline;
-    float: left;
+    //float: left;
     padding-left: 0;
-    padding-right: 0
+    padding-right: 1em;
   }
   body > nav ul li:first-child,
   body > nav ul li.first {
@@ -119,7 +164,7 @@ body > nav ul {
   }
   body > nav a {
     color: #6b6b6b;
-    float: left;
+    //float: left;
     text-decoration: none;
     font-size: 1.1em;
     line-height: 1.5em
@@ -133,10 +178,10 @@ body > nav ul {
   }
   body > nav li + li {
     /* border-left: 1px solid #b0b0b0; */
-    margin-left: .8em
+    //margin-left: .8em
   }
   body > nav li + li a {
-    padding-left: .8em;
+    //padding-left: .8em;
     /* border-left: 1px solid #dedede */
   }
   body > nav form {

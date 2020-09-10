@@ -1,0 +1,24 @@
+<!-- http://fontawesome.io icon fa-lg adapts it to size (at least it is supposed to) -->
+<ul class="subscription">
+    {{ if or .Site.Params.rss .Site.Params.textrss }}
+        {{ if .Site.Params.rss }}
+            {{ if not .Site.Params.customRSSURL  }}
+                <li><a href="{{ "/index.xml" | absURL }}" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a></li>
+            {{ end }}
+            {{ with .Site.Params.customRSSURL }}
+                <li><a href="{{ . }}" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a></li>
+            {{ end }}
+
+        {{ else }}
+
+            {{ if not .Site.Params.customRSSURL  }}
+                <li><a href="/index.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+            {{ end }}
+            {{ with .Site.Params.customRSSURL }}
+                <li><a href="{{ . }}" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+            {{ end }}
+
+        {{ end }}
+    {{ end }}
+
+</ul>

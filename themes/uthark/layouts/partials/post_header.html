@@ -1,8 +1,5 @@
 <!-- This file contains the header/title for each post -->
-<div class="sharing">
-    <a href="https://getpocket.com/save?url={{ .Permalink }}" target="_blank" ><i class="fa fa-get-pocket" title="Save to Pocket" aria-hidden="true"></i></a>
-    <a href="https://twitter.com/intent/tweet?text={{ .Title }}&url={{ .Permalink }}" target="_blank" title="Post to Twitter" aria-hidden="true"><i class="fa fa-twitter"></i></a>
-</div>
+
 <header>
     <h1 class="entry-title">
         {{ if ($.Scratch.Get "isHome") }}<a href="{{ .Permalink }}">{{ .Title }}</a>{{ else }} {{ .Title }} {{ end }}

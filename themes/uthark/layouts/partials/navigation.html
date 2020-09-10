@@ -1,4 +1,9 @@
-<!-- reading menu items from config file -->
+<!-- reading  menu items from config file -->
+<div class="menu">
+  <input type="checkbox" id="menu" class="fa fa-bars">
+  <label for="menu" aria-label="Menu"></label>
+
+  <div class="menu-container">
 
 <ul class="main-navigation">
   <!-- links to root open in the same window - other links will be opened in a new window if navigationNewWindow is set to true in the config file -->
@@ -11,30 +16,7 @@
   {{ end }}
 </ul>
 
-<!-- http://fontawesome.io icon fa-lg adapts it to size (at least it is supposed to) -->
-<ul class="subscription">
-  {{ if or .Site.Params.rss .Site.Params.textrss }}
-    {{ if .Site.Params.rss }}
-        {{ if not .Site.Params.customRSSURL  }}
-        <li><a href="{{ "/index.xml" | absURL }}" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a></li>
-        {{ end }}
-        {{ with .Site.Params.customRSSURL }}
-        <li><a href="{{ . }}" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a></li>
-        {{ end }}
-
-    {{ else }}
-
-        {{ if not .Site.Params.customRSSURL  }}
-        <li><a href="/index.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-        {{ end }}
-        {{ with .Site.Params.customRSSURL }}
-        <li><a href="{{ . }}" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-        {{ end }}
-
-    {{ end }}
-  {{ end }}
-
-</ul>
+{{ partial "rss.html" . }}
 
 {{ with .Site.Params.searchEngineURL }}
 <form action="{{ . }}" method="get" target="_blank">
@@ -44,3 +26,5 @@
   </fieldset>
 </form>
 {{end}}
+</div>
+</div>
