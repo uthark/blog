@@ -3,21 +3,14 @@
 body > nav {
   position: relative;
 
-  padding-left: 18px;
-  padding-right: 18px;
-
+  padding-left: 0.5em;
+  padding-right: 0.5em;
 
   @include sm {
-    padding-left: 25px;
-    padding-right: 25px;
   }
   @include md {
-    padding-left: 35px;
-    padding-right: 35px;
   }
   @include lg {
-    padding-left: 40px;
-    padding-right: 40px;
   }
 
   form {

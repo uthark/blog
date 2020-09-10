@@ -3,22 +3,18 @@
 
 body header.site {
   font-size: 1.7em;
-  padding: 1em 18px;
+  padding: 0.5em;
 
   @include sm {
     padding: 0.8em 25px 1.5em;
     font-size: 1em
   }
   @include md {
-    padding-left: 35px;
-    padding-right: 35px;
     font-size: 1.2em;
     padding-bottom: 0.25em;
   }
 
   @include lg {
-    padding-left: 40px;
-    padding-right: 40px;
     font-size: 1.3em
   }
 
@@ -27,7 +23,7 @@ body header.site {
     font-size: 2em;
     font-weight: normal;
     line-height: 1.2em;
-    margin: 0 0 0.5em;
+    margin: 0;
 
     font-family: $font-title;
 

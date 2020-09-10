@@ -1,0 +1,205 @@
+//
+//aside.sidebar {
+//  overflow: scroll;
+//  /*color: #333;*/
+//
+//}
+//
+//
+//aside.sidebar {
+//  float: none;
+//  padding: 0 18px 1px;
+//  /*background-color: #f7f7f7;*/
+//  /*border-top: 1px solid #e0e0e0*/
+//}
+//
+//
+//aside.sidebar section {
+//  font-size: 0.9em;
+//  line-height: 1.4em;
+//  margin-bottom: 0.5em
+//}
+//
+//aside.sidebar section h1 {
+//  margin: 0.5em 0 0;
+//  padding-bottom: .2em;
+//  /*border-bottom: 1px solid #e0e0e0*/
+//}
+//
+//aside.sidebar section h1 + p {
+//  padding-top: .4em
+//}
+//
+//
+//aside.sidebar ul {
+//  margin-bottom: 0.5em;
+//  margin-left: 0
+//}
+//
+//aside.sidebar li {
+//  list-style: none;
+//  padding: .5em 0;
+//  margin: 0;
+//  /*border-bottom: 1px solid #e0e0e0*/
+//}
+//
+//aside.sidebar li p:last-child {
+//  margin-bottom: 0
+//}
+//
+//aside.sidebar a {
+//  color: inherit;
+//  -webkit-transition: color 0.5s;
+//  -moz-transition: color 0.5s;
+//  -o-transition: color 0.5s;
+//  transition: color 0.5s
+//}
+//
+//aside.sidebar:hover a {
+//  color: #222
+//}
+//
+//aside.sidebar:hover a:hover {
+//  color: #0181eb
+//}
+//
+//
+//@media only screen and (min-width: 992px) {
+//
+//  aside.sidebar {
+//    width: 280px; /* increase sidebar, remember to increase the margin-right of #content a few lines up by the same amount */
+//    padding: 0 20px 20px
+//  }
+//
+//  .collapse-sidebar aside.sidebar {
+//    padding-left: 55px;
+//    padding-right: 55px
+//  }
+//}
+//
+//
+///*
+// * Sidebar
+// *
+// * Flexible banner for housing site name, intro, and "footer" content. Starts
+// * out above content in mobile and later moves to the side with wider viewports.
+// */
+//
+//.sidebar {
+//  /* text-align: center; */
+//  padding: 2rem 1rem;
+//  /* color: rgba(255,255,255,.5); */
+//  /*background-color: #202020;*/
+//}
+//
+//
+//aside.sidebar a {
+//  color: #222
+//}
+//
+//aside.sidebar a:focus {
+//  color: #0181eb
+//}
+//
+//aside.sidebar a:hover {
+//  color: #0181eb
+//}
+//
+//aside.sidebar a:active {
+//  color: #01579f
+//}
+//
+//
+//@media only screen and (min-width: 750px) {
+//  aside.sidebar {
+//    float: none;
+//    width: auto;
+//    clear: left;
+//    margin: 0;
+//    padding: 0 35px 1px;
+//    /*background-color: #f7f7f7;*/
+//    /*border-top: 1px solid #eaeaea*/
+//  }
+//
+//  aside.sidebar section.odd,
+//  aside.sidebar section.even {
+//    float: left;
+//    width: 48%
+//  }
+//
+//  aside.sidebar section.odd {
+//    margin-left: 0
+//  }
+//
+//  aside.sidebar section.even {
+//    margin-left: 4%
+//  }
+//
+//  aside.sidebar.thirds section {
+//    width: 30%;
+//    margin-left: 5%
+//  }
+//
+//  aside.sidebar.thirds section.first {
+//    margin-left: 0;
+//    clear: both
+//  }
+//}
+//
+//@media only screen and (min-width: 768px) {
+//
+//  .no-sidebar #content {
+//    margin-right: 0;
+//    border-right: 0
+//  }
+//
+//  .collapse-sidebar #content {
+//    margin-right: 20px
+//  }
+//
+//  #content > div,
+//  #content > article {
+//    float: left
+//  }
+//
+//  aside.sidebar {
+//    width: 210px;
+//    padding: 0 15px 15px;
+//    background: none;
+//    clear: none;
+//    float: left;
+//    margin: 0 -100% 0 0;
+//  }
+//
+//  aside.sidebar section {
+//    width: auto;
+//    margin-left: 0
+//  }
+//
+//  aside.sidebar section.odd,
+//  aside.sidebar section.even {
+//    float: none;
+//    width: auto;
+//    margin-left: 0
+//  }
+//
+//  .collapse-sidebar aside.sidebar {
+//    float: none;
+//    width: auto;
+//    clear: left;
+//    margin: 0;
+//    padding: 0 35px 1px;
+//    background-color: #f7f7f7;
+//    /*border-top: 1px solid #eaeaea*/
+//  }
+//
+//  .collapse-sidebar aside.sidebar section.odd,
+//  .collapse-sidebar aside.sidebar section.even {
+//    float: left;
+//    width: 48%
+//  }
+//
+//  .collapse-sidebar aside.sidebar section.odd {
+//    margin-left: 0
+//  }
+//}

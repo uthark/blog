@@ -1,31 +1,62 @@
+@import "mixins";
+
 div.toc-header {
   font-size: 1.2em;
 
+  @include sm {
+    display: none;
+  }
+
+  @include md {
+    display: block;
+  }
+  @include lg {
+    display:block;
+  } @include xl {
+      display:block;
+    }
+
 }
 
-aside.sidebar nav#TableOfContents {
-  ul {
-    padding: 0;
+aside.sidebar {
+  nav#TableOfContents {
 
-    margin-left: 1em;
-    margin-bottom: 0;
+    @include sm {
+      display: none;
+    }
+    @include md {
+      display:block;
+    }
+    @include lg {
+      display:block;
+    } @include xl {
+    display:block;
+  }
+    ul {
+      padding: 0;
 
-    li {
-      margin: 0;
-      padding: 0 0 0.25em;
-      list-style-type: decimal;
+      margin-left: 1em;
+      margin-bottom: 0;
 
-      a {
-        text-decoration: none;
-      }
+      li {
+        margin: 0;
+        padding: 0 0 0.25em;
+        list-style-type: decimal;
 
-      &:last-child {
-        margin-bottom: 0;
-      }
+        a {
+          text-decoration: none;
+        }
 
-      ul {
-        display: none;
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        ul {
+          display: none;
+        }
       }
     }
   }
+
 }
+

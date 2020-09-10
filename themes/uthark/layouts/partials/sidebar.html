@@ -7,11 +7,9 @@
       <h1>{{ . | markdownify }}</h1>
     {{ end }}
 
-    <p>
-      {{ with .Site.Params.sidebarText }}
-        {{ . | markdownify }}
-      {{ end }}
-    </p>
+    {{ with .Site.Params.sidebarText }}
+      <p>{{ . | markdownify }}</p>
+    {{ end }}
   </section>
 
 {{ if and (gt .WordCount 100 ) (ne .Params.toc "false") (gt (len .TableOfContents) 5 ) }}

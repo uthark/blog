@@ -1,0 +1,22 @@
+div#main {
+  div#content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    article.hentry {
+      flex: 2;
+
+      //@include sm {
+      //  min-width: 44em;
+      //}
+    }
+
+    aside.sidebar {
+      flex: 1;
+    }
+  }
+
+
+}

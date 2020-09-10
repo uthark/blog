@@ -5,14 +5,14 @@ body > footer {
   color: #666;
   border-top: 1px solid #ccc;
   position: relative;
-  margin-bottom: 1em;
   z-index: 1;
   padding: 1em 18px;
 
 
   @include sm {
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-bottom: 0;
   }
   @include md {
     padding-left: 35px;

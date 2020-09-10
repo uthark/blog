@@ -1,0 +1,63 @@
+
+body {
+  line-height: 1.5em;
+}
+
+h1 {
+  font-size: 1.8em;
+  line-height: 1.2em
+}
+
+@media only screen and (min-width: 992px) {
+  body {
+    font-size: 1.10em
+  }
+
+  h1 {
+    font-size: 1.8em;
+    line-height: 1.2em
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-rendering: optimizelegibility;
+  margin-bottom: 1em;
+  font-weight: bold;
+  margin-top: 1em;
+}
+
+h2,
+section h1 {
+  font-size: 1.4em
+}
+
+h3,
+section h2,
+section section h1 {
+  font-size: 1.3em
+}
+
+h4,
+section h3,
+section section h2,
+section section section h1 {
+  font-size: 1.2em
+}
+
+h5,
+section h4,
+section section h3 {
+  font-size: 1.1em
+}
+
+h6,
+section h5,
+section section h4,
+section section section h3 {
+  font-size: 1.0em
+}
