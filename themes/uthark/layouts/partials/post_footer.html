@@ -10,15 +10,16 @@
     <hr/>
     <p>If you have any questions, feel free to ping me on Twitter.</p>
   </div>
+  {{ if not .Site.Params.disableReadingTime }}
   <p class="meta">
-    Reading time: {{ .ReadingTime }} minutes
+     Estimated reading time: {{ .ReadingTime }} minute(s)
   </p>
+  {{ end }}
   <p class="meta">
     <!-- can't put the .Date.Format inside the datetime attribute because of double quotes, so it's outside -->
     Last update: <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Lastmod.Format "Jan 2, 2006" }}</time>
   </p>
   <p class="meta">
-    {{ if not .Site.Params.disableReadingTime }} - {{ .ReadingTime }} minute read {{ end }}
     {{ if isset .Params "categories" }}
     <!-- <br/> this will make the categories go to the second line and mess with the title -->
     <!-- in order to make category URLs work, we need to urlize them and then convert them to lowercase

@@ -39,7 +39,7 @@ params:
   searchEngineURL : "https://www.google.com/search"
   sidebarMenuEnabled: false
   sidebarMenuHeader: "Sidebar"
-  disableReadingTime: true
+  disableReadingTime: false
 
   googleAnalytics: UA-8688665-1
 
