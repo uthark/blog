@@ -1,5 +1,5 @@
 @import "mixins";
-
+@import "color-vars";
 body > nav {
   position: relative;
 
@@ -173,8 +173,12 @@ body > nav ul {
     color: #6b6b6b
   }
   body > nav a:hover {
-    color: #2b2b2b;
+    color: $nav-link-hover-light;
     text-decoration: underline;
+
+    @include dark {
+      color: $nav-link-hover-dark;
+    };
   }
   body > nav li + li {
     /* border-left: 1px solid #b0b0b0; */

@@ -1,5 +1,6 @@
 @import "fonts";
 @import "mixins";
+@import "color-vars";
 
 body header.site {
   font-size: 1.7em;
@@ -40,7 +41,7 @@ body header.site {
     }
 
     a {
-      color: #333;
+      color: $header1-light;
       text-decoration: none;
 
       &:visited, &:hover {
@@ -54,7 +55,7 @@ body header.site {
     position: relative;
     margin: .2em 0 0;
     font-size: 1em;
-    color: #aaa;
+    color: $header2-light;
     font-weight: normal;
 
     @include sm {
