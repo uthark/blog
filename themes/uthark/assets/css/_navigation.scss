@@ -157,7 +157,11 @@ body > nav ul {
     float: right
   }
   body > nav ul.subscription li:last-child a {
-    padding-right: 0
+    padding-right: 0;
+
+    &:hover {
+      color: #ee802f;
+    }
   }
   body > nav ul li {
     margin: 0
