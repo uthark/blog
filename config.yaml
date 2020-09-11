@@ -88,3 +88,5 @@ blackfriday:
 #      weight: 1
 
 disqusShortname: "uthark"
+
+summaryLength: 40
