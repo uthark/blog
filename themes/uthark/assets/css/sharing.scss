@@ -1,10 +1,15 @@
 @import "mixins";
+@import "color-vars";
 
 div.sharing {
   float: none;
 
   a {
-    color: black;
+    color: $nav-link-hover-light;
+
+    @include dark{
+      color: $nav-link-hover-dark;
+    }
 
     &:hover {
       color: red;

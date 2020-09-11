@@ -6,7 +6,7 @@ title: Sharing knowledge
 
 theme: uthark
 
-paginate: 7
+paginate: 5
 
 pygmentsOptions: [linenos]
 # Highlight shortcode and code fences (```) will be treated similarly
@@ -28,7 +28,7 @@ params:
   stackoverflow: "http://stackoverflow.com/users/216764/uthark"
 
   # If false, all of blog post will appear on front page (and in pagination)
-  truncate : false
+  truncate : true
   author: Oleg Atamanenko
   # Switch to true to enable RSS icon link
   textrss: true

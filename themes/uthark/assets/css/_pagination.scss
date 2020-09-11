@@ -1,0 +1,32 @@
+@import "color-vars";
+@import "mixins";
+
+body #content  div.pagination {
+  margin-left: 1em;
+  margin-right: 1em;
+
+  text-align: center;
+  font-size: .95em;
+  position: relative;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+
+  a {
+    text-decoration: none;
+    color: $link-dark;
+    padding-left: 0.4em; /* horizontal space between pagination links */
+
+    @include dark{
+      color: $link-light;
+    }
+
+    &:hover {
+      color: $link-hover-dark;
+
+      @include dark{
+        color: $link-hover-light;
+      }
+    }
+  }
+}
+
