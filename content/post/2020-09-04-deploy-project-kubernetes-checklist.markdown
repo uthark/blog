@@ -12,6 +12,12 @@ tags:
 - checklist
 ---
 
+While kubernetes is easy to start with, it is quite challenging to master and
+ know all details. In this post I will provide checklist of important manifest 
+ stanzas that are applicable to most applications that are targeted to run in
+ production and which are expected to not have downtime during cluster 
+ maintenance and/or application updates.
+ 
 Deploying to kubernetes is easy: create manifest with your `Deployment` and then `kubectl apply` it.
 
 The most basic deployment manifest looks like this:
