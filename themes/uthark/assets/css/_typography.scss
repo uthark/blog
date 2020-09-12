@@ -1,0 +1,63 @@
+
+pre {
+  line-height: 1.45em;
+  padding: 0.5em;
+}
+
+pre > code {
+  overflow-x: auto;
+}
+
+@import "mixins";
+
+p code,
+li code {
+  display: inline-block;
+  white-space: nowrap;
+  background: #fff;
+  font-size: .9em;
+  line-height: 1.5em;
+  color: #111;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 0.4em;
+  -moz-border-radius: 0.4em;
+  border-radius: 0.4em;
+  padding: 0 .3em;
+  margin: -1px 0;
+
+  @include dark {
+    border-color: #222;
+    background-color: #333;
+    color: #eee;
+  }
+}
+
+p pre code,
+li pre code {
+  font-size: 1em !important;
+  background: none;
+  border: none
+}
+
+
+
+figure.code {
+  background: none;
+  padding: 0;
+  border: 0;
+  margin-bottom: 1.5em
+}
+
+figure.code pre {
+  margin-bottom: 0
+}
+
+figure.code figcaption {
+  position: relative
+}
+
+figure.code .highlighttable {
+  margin-bottom: 0;
+  table-layout: fixed;
+  width: 100%;
+}

@@ -44,7 +44,7 @@ Principle of least privilege should be used as much as possible. Within its cgro
  
 3. Use digest/`@sha256` in `FROM` to specify exact version of the container you’re pulling. Digest is shown on tag page on docker hub or you can get it after running `docker pull`:
 
-```
+```bash
  $ docker pull alpine:3.12.0
  3.12.0: Pulling from library/alpine
  df20fa9351a1: Pull complete
@@ -55,7 +55,7 @@ Principle of least privilege should be used as much as possible. Within its cgro
 
 `Dockerfile` will looks like this:
 	
-```
+```docker
 FROM alpine@sha256:185518070891758909c9f839cf4ca393ee977ac378609f700f60a771a2dfe321
 COPY ...
 # And so on.

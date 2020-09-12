@@ -1,10 +1,15 @@
-$font-title: "Arvo", sans-serif;
-$font-paragraph: "Go Mono", "Anonymous Pro", "Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
+$font-title: "Lora", sans-serif;
+$font-paragraph: "Bitter", "Anonymous Pro", "Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
+$font-monospace: 'Source Code Pro', "Anonymous Pro", "Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
 
 body {
   font-family: $font-paragraph;
 }
 
+pre, code {
+  font-family: $font-monospace;
+}
+
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Arvo", sans-serif;
+  font-family: $font-title;
 }

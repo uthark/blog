@@ -16,7 +16,7 @@ Deploying to kubernetes is easy: create manifest with your `Deployment` and then
 
 The most basic deployment manifest looks like this:
 
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:

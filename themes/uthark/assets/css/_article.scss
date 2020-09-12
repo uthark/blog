@@ -35,8 +35,9 @@ body #content>div>section {
     padding-right: 40px;
   }
 }
+
 #content>article {
-  width: 100%
+  width: 100%;
 }
 
 
@@ -48,28 +49,31 @@ article header {
   /*padding-top: 2em;*/
   padding-bottom: 1em;
   margin-bottom: 1em;
+
+  h1 {
+    margin: 0;
+    margin-top: 0.15em;
+    font-size: 1.4em;
+
+    a {
+      text-decoration: none;
+      &:hover {
+          text-decoration: underline
+      }
+    }
+  }
+
+  h2 {
+    font-size: 1.3em;
+  }
+
+  p {
+    font-size: 0.9em;
+    color: #aaa;
+    margin: 0
+  }
 }
 
-article header h1 {
-  margin: 0;
-  margin-top: 0.15em;
-  font-size: 1.4em;
-}
-article header h2 {
-  font-size: 1.3em;
-}
-
-article header h1 a {
-  text-decoration: none
-}
-article header h1 a:hover {
-  text-decoration: underline
-}
-article header p {
-  font-size: .9em;
-  color: #aaa;
-  margin: 0
-}
 article header p.meta {
   text-transform: uppercase;
   /*position: absolute;*/
@@ -78,5 +82,11 @@ article header p.meta {
 @media only screen and (min-width: 768px) {
   article header {
     margin-bottom: 0.5em;
+  }
+}
+
+div#blog-archives, div.blog-index, div.entry-content {
+  p, ul, ol {
+  line-height: 1.8em;
   }
 }

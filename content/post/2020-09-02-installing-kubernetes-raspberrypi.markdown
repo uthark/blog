@@ -33,43 +33,43 @@ sudo shutdown -r now
 ## Install and configure docker
 
 Allow to use HTTPS transport for downloading packages:
-```
+```bash
 sudo apt update
 sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 ```
 
 Add docker GPG key used for verifying `Packages` file used by apt.
-```
+```bash
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 ```
 
 Add docker repository:
-```
+```bash
 echo "deb [arch=arm64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list
 ```
 
 Update apt repository index and install docker
 
-```
+```bash
 sudo apt update
 sudo apt install docker-ce docker-ce-cli containerd.io
 ```
 
 If you want to communicate with docker with non-root user:
 
-```
+```bash
 sudo usermod -aG docker "your user"
 ```
 
 To apply changes - logout and login again. If you want to reflect changes immediately run:
 
-```
+```bash
 newgrp docker
 ```
 
 Configure docker to use systemd as a cgroups driver, put in `/etc/docker/daemon.json`:
 
-```
+```json
 {
   "exec-opts": ["native.cgroupdriver=systemd"],
   "log-driver": "json-file",
@@ -84,12 +84,13 @@ Configure docker to use systemd as a cgroups driver, put in `/etc/docker/daemon.
 ## Installing kubeadm
 
 Add kubernetes repository:
-```
+```bash
 echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 ```
 
 To allow iptables properly work with bridged traffic:
-```
+
+```bash
 cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1
@@ -98,27 +99,28 @@ sudo sysctl --system
 ```
 
 Install kubeadm, kubelet and kubectl:
-```
+
+```bash
 sudo apt update
 sudo apt install -y kubelet kubeadm kubectl
 ```
 
 Minor updates of kubernetes may require extra steps, so we need to prevent packages from auto-updating:
 
-```
+```bash
 sudo apt-mark hold kubelet kubeadm kubectl
 ```
 
 ## Installing Kubernetes Control Plane
 
 Generate token for installation
-```
+```bash
 TOKEN=$(sudo kubeadm token generate)
 ```
 
 Install control plane with kubeadm:
 
-```
+```bash
 sudo kubeadm init --token=${TOKEN} --kubernetes-version=v1.19.0
 ```
 
@@ -200,7 +202,7 @@ kubeadm join 192.168.1.153:6443 --token 5p4y2w.xxivtzh1lvuukdk7 \
 
 Put kubeconfig file in user's home directory:
 
-```
+```bash
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
@@ -209,13 +211,13 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 Verify it works:
 
-```
+```bash
 kubectl get nodes
 ```
 
 In my case output was:
 
-```
+```bash
 NAME     STATUS   ROLES    AGE     VERSION
 ubuntu   Ready    master   3h42m   v1.19.0
 
@@ -223,7 +225,7 @@ ubuntu   Ready    master   3h42m   v1.19.0
 
 As a CNI network provider I use Calico, but you can use any you like. [List of available implementations](https://kubernetes.io/docs/concepts/cluster-administration/networking/#how-to-implement-the-kubernetes-networking-model)
 
-```
+```bash
 curl https://docs.projectcalico.org/manifests/calico.yaml -O
 kubectl apply -f calico.yaml
 ```

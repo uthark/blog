@@ -28,29 +28,35 @@ Configuring `wpa_supplicant` didn't help, still had issues with not getting IP A
 Finally, did the following:
 1. Create `/etc/netplan/01-netcfg.yaml` and put the following content there:
     
-    ```
-    network:
-	  version: 2
-	  renderer: networkd
-	  wifis:
-	    wlan0:
-	      dhcp4: true
-	      dhcp6: true
-	      optional: true
-	      access-points:
-	        "<replace with your wifi network name/SSID>":
-	          password: "<replace with your password>"
-    ```
+```yaml
+network:
+  version: 2
+  renderer: networkd
+  wifis:
+    wlan0:
+      dhcp4: true
+      dhcp6: true
+      optional: true
+      access-points:
+        "<replace with your wifi network name/SSID>":
+          password: "<replace with your password>"
+```
+
 2. Change permissions to make file accessible only to `root` user:
-    ```
-    chmod 600 /etc/netplan/01-netcfg.yaml
-    ```
+
+```
+chmod 600 /etc/netplan/01-netcfg.yaml
+```
+
 3. Configure [Linux wireless central regulatory domain agent](https://linux.die.net/man/8/crda). Put your country code in `/etc/default/crda`
-   ```
-   REGDOMAIN=US
-   ```
+
+```
+REGDOMAIN=US
+```
+
 4. After that, need to generate and apply netplan:
-   ```
-   sudo netplan --debug generate
-   sudo netplan --debug apply
-   ```
+
+```
+sudo netplan --debug generate
+sudo netplan --debug apply
+```

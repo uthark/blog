@@ -1,8 +1,10 @@
 ---
-title: Music
+title: Music I listen
 url: /about/music-i-listen
 date: 2020-09-01
 comments: false
+categories:
+- music
 ---
 
 ## Music for work
