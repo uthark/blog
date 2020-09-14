@@ -14,6 +14,7 @@ tags:
 ## Introduction 
 
 After using docker for last several years I’d like to share best practices that works in production.
+<!--more-->
 
 ## Reduce container image size
 In Cloud Native world infrastructure is disposable and immutable. As result, if your kubernetes pod is rescheduled to another node, new node need to pull docker image.

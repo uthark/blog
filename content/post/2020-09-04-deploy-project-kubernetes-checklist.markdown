@@ -17,6 +17,8 @@ While kubernetes is easy to start with, it is quite challenging to master and
  stanzas that are applicable to most applications that are targeted to run in
  production and which are expected to not have downtime during cluster 
  maintenance and/or application updates.
+
+<!--more-->
  
 Deploying to kubernetes is easy: create manifest with your `Deployment` and then `kubectl apply` it.
 
