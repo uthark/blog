@@ -15,7 +15,12 @@
           {{ range .Data.Pages.ByTitle }}
 
             <li>
-              <a href="{{ .Permalink }}" title="{{ .Title }}">#{{ .Title }} ({{ index .Data .Data.Singular | len }})</a>
+              <a href="{{ .Permalink }}" class="category-title" title="{{ .Title }}">#{{ .Title }} ({{ index .Data .Data.Singular | len }})</a>
+              <ul>
+                {{ range index .Data .Data.Singular}}
+                  <li><a href="{{.Permalink}}" title="{{ .Title }}">{{.Title}}</a></li>
+                {{ end }}
+              </ul>
             </li>
           {{ end }}
           </ul>

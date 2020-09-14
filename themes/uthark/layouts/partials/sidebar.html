@@ -20,18 +20,6 @@
    {{ .TableOfContents }}
 </section>
 {{ end }}
-<!-- Font awesome icons - code taken from the Hyde-x theme - "Font Awesome by Dave Gandy - http://fontawesome.io"
-     Icons: https://fortawesome.github.io/Font-Awesome/icons/
-     to give icons square dark backgrounds use them like this: fa fa-key-square
-     size is fa-3x, sizes are 1-5
- -->
-
-
-
-  <!-- sidebar menu - items are read from the config file
-       first we check if it is enabled in config file and then start adding the items
-       if Site.Params.sidebarNewWindow exists and is set to true then open these links in a new window -->
-
   {{ with .Site.Params.sidebarMenuEnabled }}
     {{ if eq . true }}
       <section class="odd">

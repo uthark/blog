@@ -23,8 +23,8 @@ body #content>div>section {
   body #content>article,
   body #content>div>article,
   body #content>div>section {
-    padding-left: 35px;
-    padding-right: 35px
+    padding-left: 3em;
+    padding-right: 3em
   }
 }
 @media only screen and (min-width: 992px) {
@@ -44,10 +44,12 @@ body #content>div>section {
 article {
   padding-top: 1em
 }
+article.hentry header {
+  padding-bottom: 1em;
+}
 article header {
   position: relative;
   /*padding-top: 2em;*/
-  padding-bottom: 1em;
   margin-bottom: 1em;
 
   h1 {
@@ -88,5 +90,16 @@ article header p.meta {
 div#blog-archives, div.blog-index, div.entry-content {
   p, ul, ol {
   line-height: 1.8em;
+  }
+}
+
+div.list-post-tags {
+  padding-bottom: 1em;
+  margin-left: 0;
+  padding-left: 0;
+
+  a.label {
+    padding: 0 0.5em 0 0;
+    border-collapse: collapse;
   }
 }

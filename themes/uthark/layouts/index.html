@@ -5,10 +5,17 @@
   <div class="blog-index">
     {{ $paginator := .Paginate (where .Site.RegularPages "Type" "post") }}
     {{ range $paginator.Pages }}
-    <article>
-
+    <article class="list">
         {{ .Scratch.Set "isHome" true }}
         {{ partial "post_header.html" . }}
+
+        {{ if .Params.categories }}
+        <div class="list-post-tags">
+         {{ range first 3 .Params.categories }}
+         <a class="label" href="{{ "/categories/" | absURL }}{{ . | urlize | lower }}/">#{{ . }}</a>
+         {{ end }}
+        </div>
+        {{ end }}
 
         {{ if eq .Site.Params.truncate false }}
         {{ .Content }}
@@ -35,7 +42,6 @@
 
   </div>
 
-  {{ partial "sidebar.html" . }}    <!-- sidebar -->
  </div>
 </div>
 
