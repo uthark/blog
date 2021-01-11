@@ -1,7 +1,7 @@
 ---
 categories:
-- GAE
-- обзор
+- googleappengine
+- review
 - development
 - article
 date: 2009-05-23T23:00:00Z
