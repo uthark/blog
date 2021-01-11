@@ -47,3 +47,7 @@ jobs:
         echo "Pushing to $remote_repo with actor: $GITHUB_ACTOR and token ${GITHUB_API_TOKEN}"
         git config -l | grep 'http\..*\.extraheader' | cut -d= -f1 | xargs -L1 git config --unset-all
         git push "${remote_repo}" master
+        cd ../
+        git add public
+        git commit -m "Update submodule"
+        git push origin master
