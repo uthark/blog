@@ -9,11 +9,6 @@ hugo --minify
 (
   # Go To Public folder
   cd public || exit
-  ls -al
-  git config pull.ff only
-  git config --local user.name "${USER}"
-  git config --local user.email "${EMAIL}"
-  git pull origin master
   # Add changes to git.
   git add .
 
