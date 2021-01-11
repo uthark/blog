@@ -38,6 +38,7 @@ jobs:
         git config --local user.email "uthark@users.noreply.github.com"
 
         # Commit changes.
+        git checkout master
         git commit -a -m "Rebuilding site: $(date)"
 
         # Push source and build repos.
