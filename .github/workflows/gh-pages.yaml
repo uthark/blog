@@ -39,6 +39,7 @@ jobs:
 
         # Commit changes.
         git checkout master
+        git add .
         git commit -a -m "Rebuilding site: $(date)"
 
         # Push source and build repos.
