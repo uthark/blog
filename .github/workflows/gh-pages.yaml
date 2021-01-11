@@ -1,0 +1,49 @@
+name: github pages
+
+on:
+  push:
+    branches:
+    - master # Deploy only for upstream.
+
+jobs:
+  deploy:
+    environment:
+      name: Environment
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: true  # Fetch Hugo themes (true OR recursive)
+        fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+    - name: Setup Hugo
+      # https://github.com/peaceiris/actions-hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        # Releases https://github.com/gohugoio/hugo/releases
+        hugo-version: '0.80.0'
+        extended: true
+
+    - name: Build
+      run: |
+        hugo --minify
+
+    - name: Deploy
+      env:
+        GITHUB_API_TOKEN: ${{ secrets.API_GITHUB_TOKEN }}
+      run: |
+        cd public
+        git config pull.ff only
+        git config --local user.name "uthark"
+        git config --local user.email "uthark@users.noreply.github.com"
+        git pull origin master
+        git checkout master
+
+        # Commit changes.
+        git commit -a -m "Rebuilding site: $(date)"
+
+        # Push source and build repos.
+        remote_repo="https://${GITHUB_ACTOR}:${GITHUB_API_TOKEN}@github.com/uthark/uthark.github.com.git"
+        echo "Pushing to $remote_repo with actor: $GITHUB_ACTOR and token ${GITHUB_API_TOKEN}"
+        git config -l | grep 'http\..*\.extraheader' | cut -d= -f1 | xargs -L1 git config --unset-all
+        git push "${remote_repo}" master
