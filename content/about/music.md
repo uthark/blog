@@ -9,6 +9,8 @@ categories:
 
 ## Music for work
 
+Some music I listen to while I'm in a flow.
+
 1. [music for programming](http://musicforprogramming.net/)
 1. [Aes Dana](https://ultimae.com/artists/aes-dana/)
 1. [Scann Tec](https://ultimae.com/artists/scann-tec/)
