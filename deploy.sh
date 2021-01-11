@@ -1,14 +1,19 @@
 #!/bin/bash
+set -euxo pipefail
 
 echo -e "\\033[0;32mDeploying updates to GitHub...\\033[0m"
 
 # Build the project.
-hugo --theme uthark
+hugo --minify
 
 (
   # Go To Public folder
   cd public || exit
-  git pull
+  ls -al
+  git config pull.ff only
+  git config --local user.name "${USER}"
+  git config --local user.email "${EMAIL}"
+  git pull origin master
   # Add changes to git.
   git add .
 
