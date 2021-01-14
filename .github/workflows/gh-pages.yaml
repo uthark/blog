@@ -36,10 +36,10 @@ jobs:
         git config pull.ff only
         git config --local user.name "uthark"
         git config --local user.email "uthark@users.noreply.github.com"
-        git pull origin master
-        git checkout master
 
         # Commit changes.
+        git checkout master
+        git add .
         git commit -a -m "Rebuilding site: $(date)"
 
         # Push source and build repos.
