@@ -1,0 +1,27 @@
+@import "fonts";
+/* Better styles for embedding GitHub Gists */
+.gist {
+  font-size: 13px;
+  line-height: 18px;
+  width: 53em;
+
+  pre {
+    font-family: $font-monospace, Menlo, Monaco, 'Bitstream Vera Sans Mono', 'Courier New', monospace !important
+  }
+
+}
+
+.gist-meta {
+  font-family: Arial, sans-serif;
+  font-size: 13px !important;
+
+  a {
+    color: #3b5998 !important;
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
