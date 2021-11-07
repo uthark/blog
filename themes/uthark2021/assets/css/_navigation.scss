@@ -1,0 +1,14 @@
+@import "mixins";
+@import "color-vars";
+nav {
+  margin-bottom: 1em;
+  ul.main-navigation {
+    display: block;
+    li {
+      display: inline-block;
+      list-style-image: none;
+      list-style-type: none;
+    }
+
+  }
+}

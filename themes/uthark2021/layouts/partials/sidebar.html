@@ -1,0 +1,55 @@
+<!-- to modify sidebar width check the css file lines 757 and 765 (for large screens) -->
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    {{ with .Site.Params.sidebarHeader }}
+      <h1>{{ . | markdownify }}</h1>
+    {{ end }}
+
+    <p>
+      {{ with .Site.Params.sidebarText }}
+        {{ . | markdownify }}
+      {{ end }}
+    </p>
+  </section>
+
+{{ if and (gt .WordCount 100 ) (ne .Params.toc "false") (gt (len .TableOfContents) 5 ) }}
+<section class="even">
+  <div class="toc-header">Table of Contents</div>
+   {{ .TableOfContents }}
+</section>
+{{ end }}
+  {{ with .Site.Params.sidebarMenuEnabled }}
+    {{ if eq . true }}
+      <section class="odd">
+        {{ with $.Site.Params.sidebarMenuHeader }}
+          <h1>{{ . }}</h1>
+        {{ end }}
+        {{ range $.Site.Menus.sidebar }}
+          <li>
+            <a href="{{ .URL | absURL }}" title="{{ .Name }}" {{ if eq $.Site.Params.sidebarNewWindow true }} target="_blank" {{ end }}>{{ .Name }}</a>
+          </li>
+        {{ end }}
+      </section>
+    {{ end }}
+  {{ end }}
+
+  <!-- add recent posts - limit is .Site.Params.sidebarRecentLimit - example copied from https://gohugo.io/templates/go-templates/ -->
+  <!-- only display this section if sideBarRecentLimit is not zero -->
+  {{ with .Site.Params.sidebarRecentLimit }}
+    {{ if not (eq . 0) }}
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          {{ range first . $.Site.Pages }}
+            <li class="post">
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </li>
+          {{ end }}
+        </ul>
+      </section>
+    {{ end }}
+  {{ end }}
+
+</aside>

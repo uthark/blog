@@ -1,0 +1,85 @@
+@import "color-vars";
+@import "fonts";
+
+div.summaries div.summary {
+  margin: 2.2em 0;
+
+  h2 {
+    font-family: $font-title;
+    font-weight: bold;
+    font-size: 1.3em;
+    margin-bottom: 0.5em;
+
+    a {
+      color: $nav-link-hover-light
+    }
+  }
+
+  p {
+    line-height: 1.6em;
+    text-indent: 3em;
+
+    a {
+      color: $nav-link-hover-light
+    }
+  }
+}
+
+div.article {
+  h1 {
+    font-family: $font-title;
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-bottom: 1em;
+  }
+
+  h2 {
+    font-family: $font-title;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 2em;
+    margin-bottom: 0.8em;
+  }
+
+  h3 {
+    font-family: $font-title;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 0.8em;
+  }
+
+
+  a {
+    color: $nav-link-hover-light
+  }
+  p {
+    line-height: 1.5em;
+    margin-bottom: 1.5em;
+  }
+
+  ol {
+    list-style: decimal;
+    line-height: 1.5em;
+    margin-bottom: 1.5em;
+  }
+
+  ul {
+    list-style: disc;
+    line-height: 1.5em;
+    margin-bottom: 1.5em;
+  }
+
+  p > code {
+    font-weight: lighter;
+    background-color: $code-background-light;
+    border: 1px solid $code-background-border-light;
+    padding: 1px 4px 1px 4px;
+  }
+
+  pre {
+    background-color: $code-background-light;
+    border: 1px solid $code-background-border-light;
+    padding: 1em;
+    margin-bottom: 1.5em;
+  }
+}

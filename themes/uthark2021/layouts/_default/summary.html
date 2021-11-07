@@ -1,0 +1,9 @@
+{{ define "title" }}
+{{ .Title }} &ndash; {{ .Site.Title }}
+{{ end }}
+{{ define "main" }}
+<h2><a href="{{ .Permalink }}" rel="full-article">{{ .Title }}</a></h2>
+<p>
+{{ .Summary }}
+</p>
+{{ end }}

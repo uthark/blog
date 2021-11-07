@@ -2,9 +2,9 @@ baseURL: https://uthark.github.io
 disablePathToLower: true
 languageCode: en-us
 
-title: Sharing knowledge
+title: Oleg Atamanenko
 
-theme: uthark
+theme: uthark2021
 
 paginate: 5
 
@@ -21,7 +21,7 @@ pygmentsUseClasses: true
 pygmentsUseClassic: false
 
 params:
-  subtitle: by Oleg Atamanenko
+  subtitle: thoughts about programming
   github : "https://github.com/uthark/"
   bitbucket : "https://bitbucket.org/uthark/"
   keybase : "https://keybase.io/uthark/"
@@ -36,7 +36,7 @@ params:
   customRSSURL: https://feeds.feedburner.com/atamanenko
 
   # Search engine URL
-  searchEngineURL : "https://www.google.com/search"
+#  searchEngineURL : "https://www.google.com/search"
   sidebarMenuEnabled: false
   sidebarMenuHeader: "Sidebar"
   disableReadingTime: false
@@ -54,18 +54,18 @@ menu:
     - Name: "Posts"
       URL: "/"
       weight: -5
-    - Name: "Reading Lists"
-      URL: "/readinglist/"
-      weight: -1
+#    - Name: "Reading Lists"
+#      URL: "/readinglist/"
+#      weight: -1
     - Name: "Categories"
       URL: "/categories/"
-      weight: -2
+      weight: 2
     - Name: "Links"
       URL: "/usefularticles/"
-      weight: -3
-    - Name: "About"
+      weight: 3
+    - Name: "About me"
       URL: "/about/"
-      weight: 0
+      weight: 15
 
 taxonomies:
   tag: "tags"
@@ -89,7 +89,7 @@ blackfriday:
 
 disqusShortname: "uthark"
 
-summaryLength: 40
+summaryLength: 30
 
 markup:
   goldmark:

@@ -1,0 +1,19 @@
+@import "color-vars";
+
+/* Light mode */
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: $background-light;
+    color: $text-dark;
+  }
+}
+
+/* Dark mode */
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: $background-dark;
+    color: $text-light;
+  }
+}
+

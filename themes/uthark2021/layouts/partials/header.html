@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html prefix="og: https://ogp.me/ns#" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    {{ if .Params.canonicalUrl }}
+        <link rel="canonical" href="{{ .Params.canonicalUrl }}">
+    {{ else }}
+        <link rel="canonical" href="{{ .Permalink }}">
+    {{ end }}
+
+    <!-- added from octo -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=5">
+
+    <!-- goes into the title bar -->
+    <title>{{ .Title }}</title>
+
+    <meta name="description"
+          content="{{ if ne .Description "" }}{{ .Description }}{{ else }}{{ .Site.Params.defaultDescription }}{{ end }}">
+    <meta name="keywords"
+          content="{{ range $index, $element := .Keywords }}{{ if gt $index 0 }},{{ end }}{{ . }}{{ else }}{{ .Site.Params.defaultKeywords }}{{ end }}">
+
+    <meta name="author" content="{{ .Site.Params.author }}">
+
+{{/*    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/go-mono" type="text/css"/>*/}}
+    <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css2?family=Lora:wght@500&family=Source+Code+Pro:wght@300&family=Bitter&display=swap" type="text/css"/>
+
+    <!-- css -->
+    <!-- original css -->
+    {{ $cssTheme := resources.Get "/css/theme.scss" | resources.ToCSS (dict "outputStyle" "compressed") | fingerprint }}
+    <link rel="stylesheet" href="{{ $cssTheme.Permalink }}">
+    <link rel="stylesheet" href="{{ "/css/uthark.css" | absURL }}">
+
+
+    <!-- css overrides -->
+    {{ range .Site.Params.customCSS }}
+        <link rel="stylesheet" href="{{ $.Site.BaseURL }}{{ . }}">
+    {{ end }}
+
+    <!-- For sidebar icons - TODO: find local icons I guess-->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+    <!-- Icons -->
+    <link href="{{ "/favicon.png" | absURL }}" rel="icon">
+
+    <!-- RSS -->
+    {{ $siteTitle := .Site.Title }}
+    {{ $authorName := .Site.Author.name }}
+
+
+    {{ if not .Site.Params.customRSSURL  }}{{ with .RSSLink }}
+        <link href="{{ . }}" rel="alternate" type="application/rss+xml" title="{{ $siteTitle }}"/>
+    {{ end }}{{ end }}
+
+
+    {{ with .Site.Params.customRSSURL }}
+        <link href="{{ . }}" rel="alternate" type="application/rss+xml" title="{{ $siteTitle }}"/>
+    {{ end }}
+
+    {{ partial "twitter-card" . }}
+
+</head>
+<body{{ with .Site.Params.theme }} class="{{ . }}"{{ end }}>
+
+<header class="site">
+    <!-- Remember that .Title will refer to the title of the specific page. For index it is the .Site.Title but is different for individual pages -->
+    <h1><a href="{{ "/" | absURL }}">{{ .Site.Title }}</a></h1>
+    {{ with .Site.Params.subtitle}}<h2>{{ . }}</h2>{{ end }}
+</header>
+
+<!-- navigation -->
+<nav>{{ partial "navigation.html" . }}</nav>
