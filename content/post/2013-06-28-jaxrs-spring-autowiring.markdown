@@ -131,6 +131,3 @@ class TestAutowiringConfiguration {
     @Autowired
     private UserShowRest userShowRest;
 ```
-
-
-Если есть вопросы - [спрашивайте в Google+](https://plus.google.com/112372998073079463630/posts)

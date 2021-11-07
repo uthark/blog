@@ -6,8 +6,6 @@ comments: false
 
 ## Work Experience
 
-### Previous Companies
-
 * 2019–current – Kubernetes Platform Engineer at [Zendesk](https://zendesk.com).
 * 2016-2019 – Team Lead, Software Architect at [kublr](https://kublr.com).
 * 2012-2019 - Team Lead, Software Architect at [EastBanc Technologies](https://eastbanctech.com).

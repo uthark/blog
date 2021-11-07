@@ -149,8 +149,6 @@ public class ServiceConfiguration extends AbstractMongoConfiguration {
 
 ```
 
-That's all for today. If you have any questions - [Ask me on Google+](https://plus.google.com/112372998073079463630/posts)
-
 [MongoTemplate]: http://docs.spring.io/spring-data/mongodb/docs/current/api/org/springframework/data/mongodb/core/MongoTemplate.html
 [SpringDataMongoDb]: http://docs.spring.io/spring-data/mongodb/docs/current/reference/htmlsingle/
 [MongoDB]: http://www.mongodb.org/
