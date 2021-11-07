@@ -8,6 +8,12 @@ nav {
       display: inline-block;
       list-style-image: none;
       list-style-type: none;
+      font-weight: bold;
+      a {
+        text-decoration: none;
+        color: $menu-dark;
+        padding-right: 1em;
+      }
     }
 
   }

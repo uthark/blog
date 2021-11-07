@@ -17,16 +17,30 @@ header.site {
   h2 {
     font-size: 1.7em;
     color: $header2-light;
+
+    @include sm {
+      font-size: 1.3em;
+    }
   }
 }
-div.homepage-content,nav, div.article {
+div.homepage-content, nav, div.article, div.list, div.single, footer {
   margin-left: auto;
   margin-right: auto;
 
+  @include sm {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+
   @include md {
-    max-width: 40em;
+    margin-left: 2em;
+    margin-right: 2em;
   }
   @include lg {
-    max-width: 40em;
+    max-width: 45em;
+  }
+
+  @include xl {
+    max-width: 60em;
   }
 }

@@ -1,4 +1,5 @@
 {{ define "main" }}
+<div class="{{ .Kind }}">
 <h1>Posts</h1>
 {{ range .Pages }}
 <article>
@@ -6,4 +7,6 @@
     {{ .Content }}
 </article>
 {{ end }}
+</div>
 {{ end }}
+

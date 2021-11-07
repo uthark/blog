@@ -1,0 +1,16 @@
+{{ define "title" }}
+{{ .Data.Singular | title }}: {{ .Data.Term }}
+{{ end }}
+{{ define "main" }}
+<!-- taxonomy -->
+<div class="list taxonomy">
+<h1>{{ .Data.Singular | title }}: {{ .Data.Term }}</h1>
+<dl>
+    {{ range .Pages.ByDate.Reverse }}
+    <dd>
+        {{ .Render "summary"  }}
+    </dd>
+    {{ end }}
+</dl>
+</div>
+{{ end }}

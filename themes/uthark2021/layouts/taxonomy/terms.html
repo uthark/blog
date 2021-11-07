@@ -1,0 +1,25 @@
+{{ define "title" }}
+{{ .Data.Plural | title }}: {{ .Title }}
+{{ end }}
+{{ define "main" }}
+<!-- terms -->
+<div class="list terms">
+    <h1> {{ .Title | humanize }}
+    </h1>
+    <dl>
+        {{ range .Pages.ByTitle }}
+        <dt>
+            <a href="{{ .Permalink }}" title="{{ .Title }}">#{{ .Title }} ({{ index .Data .Data.Singular | len }})</a>
+        </dt>
+        <dd>
+            <ul>
+                {{ range index .Data .Data.Singular}}
+                <li><a href="{{.Permalink}}" title="{{ .Title }}">{{.Title}}</a></li>
+                {{ end }}
+            </ul>
+
+        </dd>
+        {{ end }}
+    </dl>
+</div>
+{{ end }}

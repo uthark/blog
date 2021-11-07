@@ -1,0 +1,30 @@
+div.list {
+  margin-top: 2em;
+  h1 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+  }
+  dl {
+    line-height: 2em;
+
+    dt {
+      font-size: 1.4em;
+      font-weight: bold;
+      margin: 2em 0 0.5em 0;
+
+      a {
+        color: $link-dark;
+        text-decoration: none;
+        &:visited{
+          text-decoration: none;
+        }
+      }
+    }
+    dd {
+margin-bottom: 2em;
+      a {
+        color: $link-dark;
+      }
+    }
+  }
+}

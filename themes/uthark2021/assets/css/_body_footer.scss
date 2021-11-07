@@ -1,6 +1,30 @@
 @import "mixins";
+@import "color-vars";
 
 body > footer {
+  margin-bottom: 2em;
+  margin-top: 5em;
+
+  a {
+    color: $link-dark;
+  }
+  div.social {
+    font-family: 'FontAwesome';
+
+    ul {
+      display: block;
+      list-style-type: none;
+      margin: 0 auto 1.5em
+    }
+
+    ul li {
+      display: inline-block;
+      padding: 0 0.5em;
+      a {
+        color: $link-dark;
+      }
+    }
+  }
 
 }
 

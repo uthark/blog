@@ -6,8 +6,11 @@
         {{ .Site.Title }}
         {{ end }}</title>
     {{ partial "head.html" . }}
+
 </head>
 <body>
+{{ partial "site-header.html" . }}
+{{ partial "navigation.html" . }}
 
 <!-- Code that all your templates share, like a header -->
 {{ block "main" . }}
@@ -16,5 +19,6 @@
 {{ block "footer" . }}
 <!-- More shared code, perhaps a footer but that can be overridden if need be in  -->
 {{ end }}
+{{ partial "footer" . }}
 </body>
 </html>
