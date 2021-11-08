@@ -36,7 +36,63 @@ and save it as `pihole.yaml` in `/etc/kubernetes/manifests`
 
 Complete manifest:
 
-{{< gist uthark 1fbf0f93ff8eed075e0bf6901ffef1ed >}}
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pihole
+#  namespace: pihole
+spec:
+  hostNetwork: true
+  dnsPolicy: "None"
+  dnsConfig:
+    nameservers:
+      - 1.1.1.1
+  containers:
+    - name: pihole
+      image: pihole/pihole:2021.10
+      imagePullPolicy: IfNotPresent
+      env:
+        - name: TZ
+          value: "America/Los_Angeles"
+        - name: WEBPASSWORD
+          value: <CUSTOMIZE>
+      securityContext:
+        privileged: true
+      ports:
+        - containerPort: 53
+          protocol: TCP
+        - containerPort: 53
+          protocol: UDP
+        - containerPort: 67
+          protocol: UDP
+        - containerPort: 80
+          protocol: TCP
+        - containerPort: 443
+          protocol: TCP
+      volumeMounts:
+        - name: etc
+          mountPath: /etc/pihole
+        - name: dnsmasq
+          mountPath: /etc/dnsmasq.d
+      resources:
+        requests:
+          memory: 128Mi
+          cpu: 100m
+        limits:
+          memory: 2Gi
+          cpu: 1
+  volumes:
+    - name: etc
+      hostPath:
+        path: /data/pihole/etc
+      type: Directory
+    - name: dnsmasq
+      hostPath:
+        path: /data/pihole/dnsmasq.d
+      type: Directory
+```
 
 [static pods]: <https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/>
 [pihole-docker]: <https://hub.docker.com/r/pihole/pihole/tags>
