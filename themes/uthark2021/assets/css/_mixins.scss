@@ -39,3 +39,12 @@
     @content
   }
 }
+
+
+@mixin set-color($light, $dark) {
+  color: $light;
+
+  @include dark {
+    color: $dark;
+  }
+}

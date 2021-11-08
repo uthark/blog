@@ -13,7 +13,7 @@ div.list {
       margin: 2em 0 0.5em 0;
 
       a {
-        color: $link-dark;
+        @include set-color($link-light, $link-dark);
         text-decoration: none;
         &:visited{
           text-decoration: none;
@@ -23,7 +23,7 @@ div.list {
     dd {
 margin-bottom: 2em;
       a {
-        color: $link-dark;
+        @include set-color($link-light, $link-dark);
       }
     }
   }

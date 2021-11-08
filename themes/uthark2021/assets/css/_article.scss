@@ -10,18 +10,18 @@ div.summaries div.summary {
     font-size: 1.3em;
     margin-bottom: 0.5em;
 
-    a {
-      color: $nav-link-hover-light
+  }
+
+  a {
+    @include set-color($nav-link-hover-light, $nav-link-hover-dark);
+    &:visited{
+      color: inherit;
     }
   }
 
   p {
     line-height: 1.6em;
     //text-indent: 3em;
-
-    a {
-      color: $nav-link-hover-light
-    }
   }
 }
 
@@ -49,10 +49,13 @@ div.article {
     margin-bottom: 0.8em;
   }
 
-
   a {
-    color: $nav-link-hover-light
+    @include set-color($nav-link-hover-light, $nav-link-hover-dark);
+    &:visited{
+      color: inherit;
+    }
   }
+
   p {
     line-height: 1.5em;
     margin-bottom: 1.5em;
@@ -72,11 +75,16 @@ div.article {
     margin-left: 2em;
   }
 
-  p > code {
+  p > code, li > code {
     font-weight: lighter;
     background-color: $code-background-light;
     border: 1px solid $code-background-border-light;
     padding: 1px 4px 1px 4px;
+
+    @include dark {
+      background-color: $code-background-dark;
+      border-color: $code-background-border-dark;
+    }
   }
 
   pre {
@@ -85,9 +93,14 @@ div.article {
     padding: 1em;
     margin-bottom: 1.5em;
     overflow-x: scroll;
+
+    @include dark {
+      background-color: $code-background-dark;
+      border-color: $code-background-border-dark;
+    }
   }
 
-  pre.chroma{
+  pre.chroma {
 
     /* Other */  .x { color: #d75f00 }
     /* Error */  .err {  }

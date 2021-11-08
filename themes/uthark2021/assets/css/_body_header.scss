@@ -3,5 +3,18 @@
 @import "color-vars";
 
 body header.site {
+  h1 {
+    a {
+      @include set-color($header1-light, $header1-dark);
+      &:visited{
+        @include set-color($header1-light, $header1-dark);
+      }
 
+    }
+
+  }
+
+  h2 {
+    @include set-color($header2-light, $header2-dark);
+  }
 }

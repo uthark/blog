@@ -177,7 +177,7 @@ body > nav ul {
     color: #6b6b6b
   }
   body > nav a:hover {
-    color: $nav-link-hover-light;
+    @include set-color($nav-link-hover-light, $nav-link-hover-light);
     text-decoration: underline;
 
     @include dark {

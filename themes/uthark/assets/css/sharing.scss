@@ -5,11 +5,7 @@ div.sharing {
   float: none;
 
   a {
-    color: $nav-link-hover-light;
-
-    @include dark{
-      color: $nav-link-hover-dark;
-    }
+    @include set-color($nav-link-hover-light, $nav-link-hover-dark);
 
     &:hover {
       color: red;

@@ -1,2 +1,34 @@
 @import "fonts";
 
+/* Better styles for embedding GitHub Gists */
+body .gist {
+  font-size: 13px;
+  line-height: 18px;
+  width: 53em;
+
+  pre {
+    font-family: $font-monospace, Menlo, Monaco, 'Bitstream Vera Sans Mono', 'Courier New', monospace !important
+  }
+
+  .blob-num, .blob-code {
+    @include dark {
+      background-color: #999;
+    }
+
+  }
+}
+
+.gist-meta {
+  font-family: Helvetica, sans-serif;
+  font-size: 13px !important;
+
+  a {
+    color: #3b5998 !important;
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
