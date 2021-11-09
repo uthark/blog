@@ -4,6 +4,7 @@ nav {
   margin-bottom: 1em;
   ul.main-navigation {
     display: block;
+
     li {
       display: inline-block;
       list-style-image: none;
@@ -18,6 +19,10 @@ nav {
           @include set-color($menu-light, $menu-dark);
         }
       }
+    }
+
+    @include sm {
+      font-size: 1em;
     }
 
   }

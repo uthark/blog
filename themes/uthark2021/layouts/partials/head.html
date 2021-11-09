@@ -1,3 +1,7 @@
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
 <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&family=Prata&display=swap" type="text/css"/>
 
 {{ $cssTheme := resources.Get "/css/theme.scss" | resources.ToCSS (dict "outputStyle" "compressed") | fingerprint }}

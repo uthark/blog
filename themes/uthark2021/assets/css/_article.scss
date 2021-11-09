@@ -10,6 +10,10 @@ div.summaries div.summary {
     font-size: 1.3em;
     margin-bottom: 0.5em;
 
+    @include sm {
+      font-size: 2em;
+    }
+
   }
 
   a {
@@ -21,7 +25,11 @@ div.summaries div.summary {
 
   p {
     line-height: 1.6em;
-    //text-indent: 3em;
+
+    @include sm {
+      line-height: 1.3em;
+      font-size: 1.2em;
+    }
   }
 }
 
@@ -32,6 +40,10 @@ div.article {
     font-weight: bold;
     font-size: 1.5em;
     margin-bottom: 1em;
+
+    @include sm {
+      font-size: 2em;
+    }
   }
 
   h2 {
@@ -59,6 +71,11 @@ div.article {
   p {
     line-height: 1.5em;
     margin-bottom: 1.5em;
+
+    @include sm {
+      line-height: 1.3em;
+      font-size: 1.2em;
+    }
   }
 
   ol {
@@ -66,6 +83,10 @@ div.article {
     line-height: 1.5em;
     margin-bottom: 1.5em;
     margin-left: 2em;
+
+    @include md {
+      margin-left: 4em;
+    }
   }
 
   ul {
@@ -73,6 +94,10 @@ div.article {
     line-height: 1.5em;
     margin-bottom: 1.5em;
     margin-left: 2em;
+
+    @include md {
+      margin-left: 4em;
+    }
   }
 
   p > code, li > code {

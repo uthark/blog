@@ -12,6 +12,9 @@ header.site {
         color: $header1-light;
       }
     }
+    @include sm {
+      font-size: 1.8em;
+    }
   }
 
   h2 {
@@ -19,7 +22,7 @@ header.site {
     color: $header2-light;
 
     @include sm {
-      font-size: 1.3em;
+      font-size: 1.4em;
     }
   }
 }
@@ -44,3 +47,4 @@ div.homepage-content, nav, div.article, div.list, div.single, footer {
     max-width: 60em;
   }
 }
+

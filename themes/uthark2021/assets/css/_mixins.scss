@@ -3,6 +3,7 @@
 // Small devices
 @mixin sm {
   @media screen and (max-width: #{$screen-sm-max}) {
+    //background-color: red;
     @content;
   }
 }
@@ -10,6 +11,7 @@
 // Medium devices
 @mixin md {
   @media screen and (min-width: #{$screen-md-min}) and (max-width: #{$screen-md-max}) {
+    //background-color: orange;
     @content;
   }
 }
@@ -17,6 +19,7 @@
 // Large devices
 @mixin lg {
   @media screen and (min-width: #{$screen-lg-min}) and (max-width: #{$screen-lg-max}) {
+    //background-color: yellow;
     @content;
   }
 }
@@ -24,6 +27,7 @@
 // Extra large devices
 @mixin xl {
   @media screen and (min-width: #{$screen-xl-min}) {
+    //background-color: green;
     @content;
   }
 }
