@@ -111,11 +111,11 @@ markup:
       xhtml: false
   highlight:
     codeFences: true
-    guessSyntax: false
+    guessSyntax: true
     hl_Lines: ""
     lineNoStart: 1
     lineNos: false
     lineNumbersInTable: true
     noClasses: true
     tabWidth: 4
-    style: solarized-dark256
+    style: solarized-light

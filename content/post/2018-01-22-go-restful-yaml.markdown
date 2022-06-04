@@ -13,7 +13,7 @@ twitter:
 ---
 
 [go-restful] is a [go] package used for building REST-style web services.
-It is very powerful, but it supports JSON and XML out of the box only. Fortunately, go-restful allows to register custom serialization schemes.
+It is potent, but it supports JSON and XML out of the box only. Fortunately, go-restful allows registering custom serialization schemes.
 
 To do so, it provides a handy interface [EntityReaderWriter], which contains only two methods:
 
@@ -26,7 +26,7 @@ type EntityReaderWriter interface {
 
     // Write a serialized version of the value on the response.
     // The Response may have a compressing writer. Depends on Accept-Encoding.
-    // status should be a valid Http Status code
+    // status should be a valid HTTP status code
     Write(resp *Response, status int, v interface{}) error
 }
 ```
@@ -94,9 +94,9 @@ func (e YamlReaderWriter) Write(resp *restful.Response, status int, v interface{
 
 ```
 
-For implementing actual reading/writing of YAML I use library called [go-yaml]. The implementation is straightforward, just call [`Marshal`](https://godoc.org/gopkg.in/yaml.v2#Marshal) and [`Unmarshal`](https://godoc.org/gopkg.in/yaml.v2#Unmarshal) methods and do an error processing.
+For implementing actual reading/writing of YAML, I use a library called [go-yaml]. The implementation is straightforward; call [`Marshal`](https://godoc.org/gopkg.in/yaml.v2#Marshal) and [`Unmarshal`](https://godoc.org/gopkg.in/yaml.v2#Unmarshal) methods and do an error processing.
 
-The final step is to register newly written `YamlReaderWriter` in go-restful container during application startup.
+The final step is registering the newly written `YamlReaderWriter` in the go-restful container during application startup.
 
 ``` go
 
@@ -140,7 +140,7 @@ $ curl -H "Accept: application/x-yaml" http://localhost:8080/task
   dateCompleted: 0001-01-01T00:00:00Z
 ```
 
-If we don’t specify header, the output will be in JSON:
+If we don’t specify the header, the output will be in JSON:
 
 ``` sh
 $ curl http://localhost:8080/task

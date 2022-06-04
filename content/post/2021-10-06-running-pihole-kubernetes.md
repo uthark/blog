@@ -16,7 +16,7 @@ In this post, we will install Pi-Hole on Kubernetes.
 
 Up to recent versions of Pi-Hole Docker images you had to take care of the correct architecture (and as a result correct docker tag to use).
 
-Now they use multiarch docker image, so you can use docker image `pihole/pihole:<version>` which will work both on `amd64` and `arm` architectures.
+Now they use multi-arch docker image, so you can use docker image `pihole/pihole:<version>` which will work both on `amd64` and `arm` architectures.
 
 We will use Kubelet's ability to run [static pods].
 
@@ -42,15 +42,17 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: pihole
-#  namespace: pihole
+  namespace: pihole
 spec:
   hostNetwork: true
   dnsPolicy: "None"
   dnsConfig:
     nameservers:
+      # upstream DNS used by pihole.
       - 1.1.1.1
   containers:
     - name: pihole
+      # https://hub.docker.com/r/pihole/pihole/tags
       image: pihole/pihole:2021.10
       imagePullPolicy: IfNotPresent
       env:
@@ -87,11 +89,11 @@ spec:
     - name: etc
       hostPath:
         path: /data/pihole/etc
-      type: Directory
+        type: Directory
     - name: dnsmasq
       hostPath:
         path: /data/pihole/dnsmasq.d
-      type: Directory
+        type: Directory
 ```
 
 [static pods]: <https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/>

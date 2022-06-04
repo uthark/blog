@@ -26,6 +26,5 @@ PreStop hook error failure contained error code 137, which indicates that the ap
 2. ExecSync error
 3. Checking times
 4. Checking manifests
-5. 
 
 We found out that the cause of the `FailedPreStopHook` was an incorrect `preStop` hook which took much more time to finish than the main container. This caused kubelet to terminate the container and generate the Event that the monitor picked up.

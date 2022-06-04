@@ -1,24 +1,35 @@
 @import "color-vars";
+@import "mixins";
 @import "fonts";
 
 div.summaries div.summary {
-  margin: 2.2em 0;
+  margin: 3em 0;
 
   h2 {
     font-family: $font-title;
     font-weight: bold;
     font-size: 1.3em;
+    position: relative;
     margin-bottom: 0.5em;
 
     @include sm {
       font-size: 2em;
     }
 
+    &:hover {
+      ::before {
+        content: "§";
+        position: absolute;
+        display: inline-block;
+        left: -1em;
+      }
+    }
   }
 
   a {
     @include set-color($nav-link-hover-light, $nav-link-hover-dark);
-    &:visited{
+
+    &:visited {
       color: inherit;
     }
   }
@@ -35,10 +46,11 @@ div.summaries div.summary {
 
 div.article {
   margin-top: 2em;
+
   h1 {
     font-family: $font-title;
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 200%;
     margin-bottom: 1em;
 
     @include sm {
@@ -49,7 +61,7 @@ div.article {
   h2 {
     font-family: $font-title;
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 180%;
     margin-top: 2em;
     margin-bottom: 0.8em;
   }
@@ -63,19 +75,22 @@ div.article {
 
   a {
     @include set-color($nav-link-hover-light, $nav-link-hover-dark);
-    &:visited{
+    &:visited {
       color: inherit;
     }
   }
 
   p {
-    line-height: 1.5em;
+    line-height: 150%;
     margin-bottom: 1.5em;
 
     @include sm {
       line-height: 1.3em;
       font-size: 1.2em;
     }
+  }
+  p + p {
+    margin-top: 1em;
   }
 
   ol {
@@ -117,7 +132,7 @@ div.article {
     border: 1px solid $code-background-border-light;
     padding: 1em;
     margin-bottom: 1.5em;
-    overflow-x: scroll;
+    overflow-x: auto;
 
     @include dark {
       background-color: $code-background-dark;
