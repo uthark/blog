@@ -12,7 +12,7 @@ tags:
 
 Recently I wrote how you can [install Kubernetes on Raspberry Pi](/post/2020-09-02-installing-kubernetes-raspberrypi/). 
 
-In this post we will install Pi-Hole on Kubernetes.
+In this post, we will install Pi-Hole on Kubernetes.
 
 Up to recent versions of Pi-Hole Docker images you had to take care of the correct architecture (and as a result correct docker tag to use).
 

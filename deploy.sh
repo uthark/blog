@@ -21,5 +21,4 @@ hugo --minify
 
   # Push source and build repos.
   git push origin master
-
 )

@@ -14,14 +14,14 @@ tags:
 ---
 
 I use OmniFocus a lot and wanted to share with you simple automation that 
-will allow to add tasks to OmniFocus without switching to the main window or 
+will allow adding tasks to OmniFocus without switching to the main window or 
 using QuickEntry.
 
 <!--more-->
 
-To achieve it, we will use AppleScript that comes with macOS out of the box.
+We will use AppleScript, which comes with macOS out of the box.
 
-1. Create new Apple Script using Script Editor with the following content:
+1. Create a new Apple Script using Script Editor with the following content:
 
 ```applescript
 on run argv
@@ -34,7 +34,7 @@ end run
 ```
 
 Save it to a folder like `~/bin` under the name `omni.scpt` (obviously, you can 
-change it, just don't forget to update the shell script below).
+change it, and don't forget to update the shell script below).
 
 2. Create a shell script `omni` and make it executable:
 
@@ -49,7 +49,7 @@ task="$*"
 osascript "$script_path/omni.scpt" "$task"
 ```
 
-3. Add folder with both files to your `$PATH`.
+3. Add the folder with both files to your `$PATH`.
 
 4. That's it.
 
@@ -59,4 +59,4 @@ Example usage:
 omni review agenda for meeting with Super team @review
 ```
 
-Note that you can use tags when entering task. 
+Note that you can use tags when entering tasks. 
